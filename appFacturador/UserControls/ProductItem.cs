@@ -16,6 +16,7 @@ namespace appFacturador.UserControls
 
         private string _productTitle;
         private string _productCategory;
+        private double _productPrice;
         private bool _isSelected;
         private int _selectedUnits;
         
@@ -24,6 +25,7 @@ namespace appFacturador.UserControls
         public ProductItem()
         {
             InitializeComponent();
+            this.IsSelected = false;
         }
 
 
@@ -43,6 +45,14 @@ namespace appFacturador.UserControls
             set { _productCategory = value; lblProductCategory.Text = $"({value})"; }
         }
 
+        [Category("Custom Props")]
+        public double ProductPrice
+        {
+            get { return _productPrice; }
+            set { _productPrice = value; lblProductPrice.Text = $"{value}$"; }
+        }
+
+
 
         [Category("Custom Props")]
         public bool IsSelected
@@ -61,21 +71,22 @@ namespace appFacturador.UserControls
         #endregion
 
         #region EventsHandlers
-        private void btnDecrement_Click(object sender, EventArgs e)
+       
+        private void ckBoxProduct_CheckedChanged_1(object sender, EventArgs e)
+        {
+            this.reviewCheckStatus();
+        }
+
+        private void btnDecrement_Click_1(object sender, EventArgs e)
         {
             this.DecrementUnitsValue();
         }
 
-        private void btnIncrement_Click(object sender, EventArgs e)
+        private void btnIncrement_Click_1(object sender, EventArgs e)
         {
             this.IncrementUnitsValue();
         }
 
-
-        private void ckBoxProduct_CheckedChanged(object sender, EventArgs e)
-        {
-            this.reviewCheckStatus();
-        }
         #endregion
 
         #region Component-Methods
@@ -88,7 +99,7 @@ namespace appFacturador.UserControls
 
         private void DecrementUnitsValue() {
             int units = this.SelectedUnits;
-            if (units > 0)
+            if (units > 1)
             {
                 this.SelectedUnits--;
             }
@@ -112,12 +123,16 @@ namespace appFacturador.UserControls
         private void reviewCheckStatus() {
             if (ckBoxProduct.Checked == true)
             {
+                this.lblSelected.Visible = true;
                 this.EnableButtons();
-                this.SelectedUnits = 0;
+                this.SelectedUnits = 1;
+                this.IsSelected = true;
             }
             else {
                 this.DisableButtons();
                 this.ClearTxtValue();
+                this.IsSelected = false;
+                this.lblSelected.Visible = false;
             }
         }
 
