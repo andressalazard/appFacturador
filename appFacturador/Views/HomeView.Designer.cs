@@ -35,6 +35,7 @@ namespace appFacturador.Forms
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnCreateClient = new System.Windows.Forms.Button();
             this.btnSearchClient = new System.Windows.Forms.Button();
+            this.btnShowProductsView = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -80,6 +81,7 @@ namespace appFacturador.Forms
             this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panel3.Controls.Add(this.btnShowProductsView);
             this.panel3.Controls.Add(this.btnCreateClient);
             this.panel3.Controls.Add(this.btnSearchClient);
             this.panel3.Location = new System.Drawing.Point(18, 127);
@@ -90,7 +92,7 @@ namespace appFacturador.Forms
             // btnCreateClient
             // 
             this.btnCreateClient.Font = new System.Drawing.Font("FontAwesome", 21.75F);
-            this.btnCreateClient.Location = new System.Drawing.Point(231, 35);
+            this.btnCreateClient.Location = new System.Drawing.Point(75, 38);
             this.btnCreateClient.Name = "btnCreateClient";
             this.btnCreateClient.Size = new System.Drawing.Size(271, 92);
             this.btnCreateClient.TabIndex = 4;
@@ -101,13 +103,24 @@ namespace appFacturador.Forms
             // btnSearchClient
             // 
             this.btnSearchClient.Font = new System.Drawing.Font("FontAwesome", 21.75F);
-            this.btnSearchClient.Location = new System.Drawing.Point(231, 145);
+            this.btnSearchClient.Location = new System.Drawing.Point(75, 136);
             this.btnSearchClient.Name = "btnSearchClient";
             this.btnSearchClient.Size = new System.Drawing.Size(271, 92);
             this.btnSearchClient.TabIndex = 3;
             this.btnSearchClient.Text = "Consultar Cliente";
             this.btnSearchClient.UseVisualStyleBackColor = true;
             this.btnSearchClient.Click += new System.EventHandler(this.btnSearchClient_Click);
+            // 
+            // btnShowProductsView
+            // 
+            this.btnShowProductsView.Font = new System.Drawing.Font("FontAwesome", 21.75F);
+            this.btnShowProductsView.Location = new System.Drawing.Point(352, 38);
+            this.btnShowProductsView.Name = "btnShowProductsView";
+            this.btnShowProductsView.Size = new System.Drawing.Size(270, 92);
+            this.btnShowProductsView.TabIndex = 5;
+            this.btnShowProductsView.Text = "Consultar Productos";
+            this.btnShowProductsView.UseVisualStyleBackColor = true;
+            this.btnShowProductsView.Click += new System.EventHandler(this.btnShowProductsView_Click);
             // 
             // HomeView
             // 
@@ -133,5 +146,6 @@ namespace appFacturador.Forms
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button btnCreateClient;
         private System.Windows.Forms.Button btnSearchClient;
+        private System.Windows.Forms.Button btnShowProductsView;
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using appFacturador.Views;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -30,5 +31,12 @@ namespace appFacturador.Forms
         
         }
 
+        private void btnShowProductsView_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ProductSelectionView productView = new ProductSelectionView();
+            productView.ShowDialog();
+            this.Close();
+        }
     }
 }
