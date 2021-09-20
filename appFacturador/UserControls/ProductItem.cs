@@ -16,9 +16,11 @@ namespace appFacturador.UserControls
 
         private string _productTitle;
         private string _productCategory;
-        private double _productPrice;
+        private decimal _productPrice;
         private bool _isSelected;
         private int _selectedUnits;
+
+        public event EventHandler<ProductItem> ProductIsSelectedEvent;
         
         #endregion
 
@@ -46,7 +48,7 @@ namespace appFacturador.UserControls
         }
 
         [Category("Custom Props")]
-        public double ProductPrice
+        public decimal ProductPrice
         {
             get { return _productPrice; }
             set { _productPrice = value; lblProductPrice.Text = $"{value}$"; }
@@ -80,11 +82,13 @@ namespace appFacturador.UserControls
         private void btnDecrement_Click_1(object sender, EventArgs e)
         {
             this.DecrementUnitsValue();
+            ProductIsSelectedEvent?.Invoke(this, this);
         }
 
         private void btnIncrement_Click_1(object sender, EventArgs e)
         {
             this.IncrementUnitsValue();
+            ProductIsSelectedEvent?.Invoke(this, this);
         }
 
         #endregion
@@ -134,6 +138,7 @@ namespace appFacturador.UserControls
                 this.IsSelected = false;
                 this.lblSelected.Visible = false;
             }
+            ProductIsSelectedEvent?.Invoke(this, this);
         }
 
         #endregion

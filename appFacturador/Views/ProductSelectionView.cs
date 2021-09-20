@@ -19,6 +19,7 @@ namespace appFacturador.Views
         public ProductSelectionView()
         {
             InitializeComponent();
+            InitializeSummaryGrid();
         }
 
         private void ProductSelectionView_Load_1(object sender, EventArgs e)
@@ -62,17 +63,17 @@ namespace appFacturador.Views
               "Confections"
             };
 
-            double[] productPrices = {
-              22.00D,
-              22.00D,
-              97.00D,
-              21.00D,
-              21.00D,
-              4.50D,
-              4.50D,
-              23.75D,
-              17.45D,
-              81.00D
+            decimal[] productPrices = {
+              22.00M,
+              22.00M,
+              97.00M,
+              21.00M,
+              21.00M,
+              4.50M,
+              4.50M,
+              23.75M,
+              17.45M,
+              81.00M
             };
 
             for (int i = 0; i < availableProducts.Length; i++) {
@@ -82,9 +83,9 @@ namespace appFacturador.Views
                 availableProducts[i].ProductPrice = productPrices[i];
 
                 flowLayoutPanel1.Controls.Add(availableProducts[i]);
+                availableProducts[i].ProductIsSelectedEvent += Item_ProductIsSelectedEvent;
             }
         }
-
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -98,8 +99,7 @@ namespace appFacturador.Views
 
         private void btnSavePurchase_Click(object sender, EventArgs e)
         {
-            InitializeSummaryGrid();
-            ShowSelectedProductItems();
+
         }
 
         private void ShowSelectedProductItems() {
@@ -108,11 +108,23 @@ namespace appFacturador.Views
                 DataRow row = summaryPurchase.NewRow();
                     row["ProductName"] = item.ProductTitle;
                     row["Units"] = item.SelectedUnits;
-
                     summaryPurchase.Rows.Add(row);
              }
-            }
-        
+            }        
         }
+
+        private void DisplaySelectedProducts() {
+            InitializeSummaryGrid();
+            ShowSelectedProductItems();
+        }
+
+
+        #region Events
+        private void Item_ProductIsSelectedEvent(object sender, ProductItem item)
+        {
+            DisplaySelectedProducts();
+        }
+
+        #endregion
     }
 }
