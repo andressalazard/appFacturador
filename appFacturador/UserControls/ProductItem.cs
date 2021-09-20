@@ -123,6 +123,19 @@ namespace appFacturador.UserControls
             txtProductUnits.Text = "";
         }
 
+        public void ResetProductItem() {
+            DisableItem();
+            ckBoxProduct.Checked = false;
+            ProductIsSelectedEvent?.Invoke(this, this);
+        }
+
+        private void DisableItem() {
+            this.DisableButtons();
+            this.ClearTxtValue();
+            this.IsSelected = false;
+            this.lblSelected.Visible = false;
+        }
+
 
         private void reviewCheckStatus() {
             if (ckBoxProduct.Checked == true)
@@ -133,10 +146,7 @@ namespace appFacturador.UserControls
                 this.IsSelected = true;
             }
             else {
-                this.DisableButtons();
-                this.ClearTxtValue();
-                this.IsSelected = false;
-                this.lblSelected.Visible = false;
+                DisableItem();
             }
             ProductIsSelectedEvent?.Invoke(this, this);
         }

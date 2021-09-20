@@ -117,10 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="label2.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="label2.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
+  <data name="label2.Text" xml:space="preserve">
+    <value>The list below display all available products MiniMarket has to offer
+To select a product, please check the box on the left side
+To add one unit of product, please click Increment(+) Button
+To remove one unit of product, please click Decrement(-) Button
+
+When you're ready with your selection, please click Save Summary Button</value>
+  </data>
 </root>

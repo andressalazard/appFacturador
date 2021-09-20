@@ -29,7 +29,7 @@ namespace appFacturador.Views
 
         private void InitializeSummaryGrid() {
             summaryPurchase = new DataTable();
-            string[] fieldNames = { "ProductName", "Units" };
+            string[] fieldNames = { "ProductName", "Units", "Total" };
             foreach (string field in fieldNames) {
                 summaryPurchase.Columns.Add(field);
             }
@@ -108,6 +108,7 @@ namespace appFacturador.Views
                 DataRow row = summaryPurchase.NewRow();
                     row["ProductName"] = item.ProductTitle;
                     row["Units"] = item.SelectedUnits;
+                    row["Total"] = item.ProductPrice * item.SelectedUnits;
                     summaryPurchase.Rows.Add(row);
              }
             }        
@@ -118,6 +119,12 @@ namespace appFacturador.Views
             ShowSelectedProductItems();
         }
 
+        private void ClearSelection(){
+            foreach (ProductItem item in availableProducts) {
+                item.ResetProductItem();
+            }
+        }
+
 
         #region Events
         private void Item_ProductIsSelectedEvent(object sender, ProductItem item)
@@ -126,5 +133,10 @@ namespace appFacturador.Views
         }
 
         #endregion
+
+        private void btnClearFields_Click(object sender, EventArgs e)
+        {
+            ClearSelection();
+        }
     }
 }
