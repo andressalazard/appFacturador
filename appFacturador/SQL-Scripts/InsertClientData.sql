@@ -17,3 +17,7 @@ INSERT INTO Client (FirstName, LastName, Phone, Email, PersonalAddress)
 VALUES ('Yang', 'Wang', '0979187544', 'yang.wang@email.com', 'Hauptstr. 29')
 
 select * from Client;
+
+
+
+

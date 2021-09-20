@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 using System.Data;
 using System.Data.SqlClient;
-using System.Windows.Forms;
 using appFacturador.Models;
+using System.Windows.Forms;
 
 namespace appFacturador.Config
 {
@@ -17,30 +17,26 @@ namespace appFacturador.Config
                         Initial Catalog = marketDB; User ID= sa; Password=andres1234";
 
         SqlConnection dbConnection;
+
+        #region connect-disconnect methods
         
         public void ConnectToDatabase() {
             dbConnection = new SqlConnection(connectionString);
             dbConnection.Open();
-            MessageBox.Show("Connection Open!");
+            Console.WriteLine("Connection Open!");
         }
 
-        public void ConsultQuery(string sqlRequest) {
-            SqlCommand command;
-            SqlDataReader dataReader;
-            string output = "";
-            command = new SqlCommand(sqlRequest, dbConnection);
-            dataReader = command.ExecuteReader();
-            //Object[] values = new Object[dataReader.FieldCount];
-
-            while (dataReader.Read()) {
-                Object[] values = new Object[dataReader.FieldCount];
-                for (int i = 0; i < dataReader.FieldCount; i++) {
-                    Console.WriteLine("Values of: "+values[i]);
-                }
-            }
-            dataReader.Close();
-
+        public void DisconnectToDatabase()
+        {
+            dbConnection.Close();
+            Console.WriteLine("Connection Closed!");
         }
+
+        #endregion
+
+
+
+        #region SQL-fetching methods
 
         public List<ProductModel> FetchDatabaseProducts() {
             string sql = "SELECT * FROM PRODUCT";
@@ -57,14 +53,33 @@ namespace appFacturador.Config
                 productsList.Add(fetchedProduct);
             }
             dataReader.Close();
-
-            /*foreach (ProductModel product in productsList) {
-                Console.WriteLine($"product ID: {product.ProductId}, name: {product.ProductName}, price: {product.ProductPrice}, category: {product.ProductCategory}");
-            }*/
-
             return productsList;
         }
 
+        public void InsertClientRecord(ClientModel clientRecord) {
+           
+            string storedProcedureName = "SP_Insert_Client";
+            SqlCommand command = new SqlCommand(storedProcedureName, dbConnection);
+            command.CommandType = CommandType.StoredProcedure;
+
+            command.Parameters.AddWithValue("@FirstName", clientRecord.FirstName);
+            command.Parameters.AddWithValue("@LastName", clientRecord.LastName);
+            command.Parameters.AddWithValue("@Phone", clientRecord.Phone);
+            command.Parameters.AddWithValue("@Email", clientRecord.Email);
+            command.Parameters.AddWithValue("PersonalAddress", clientRecord.Address);
+
+            int i = command.ExecuteNonQuery();
+
+            if (i != 0) {
+                MessageBox.Show(i + "Client Successfully save on DB!");
+            }
+        }
+
+        #endregion
+
+
+
+        #region api-calls
 
         public List<ProductModel> getAvailableProducts() {
             ConnectToDatabase();
@@ -73,12 +88,18 @@ namespace appFacturador.Config
             return productList;
         }
 
-
-
-        public void DisconnectToDatabase() {
-            dbConnection.Close();
-            MessageBox.Show("Connection Closed!");
+        public void registerNewClient(ClientModel client) {
+            ConnectToDatabase();
+            InsertClientRecord(client);
+            DisconnectToDatabase();
         }
+
+
+        #endregion
+
+
+
+       
 
     }
 }
