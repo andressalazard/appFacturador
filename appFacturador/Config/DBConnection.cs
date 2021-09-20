@@ -56,6 +56,30 @@ namespace appFacturador.Config
             return productsList;
         }
 
+        public List<ClientModel> FetchDatabaseClients()
+        {
+            List<ClientModel> registeredClients = new List<ClientModel>();
+            string sql = "SELECT * FROM CLIENT";
+            SqlCommand command = new SqlCommand(sql, dbConnection);
+
+            SqlDataReader dataReader = command.ExecuteReader();
+            while (dataReader.Read()) {
+                ClientModel fetchedClient = new ClientModel(
+                    (int)dataReader["ClientID"],
+                    dataReader["FirstName"].ToString(),
+                    dataReader["LastName"].ToString(),
+                    dataReader["Phone"].ToString(),
+                    dataReader["Email"].ToString(),
+                    dataReader["PersonalAddress"].ToString()
+                    );
+                registeredClients.Add(fetchedClient);
+            }
+
+            dataReader.Close();
+            return registeredClients;
+        }
+
+
         public void InsertClientRecord(ClientModel clientRecord) {
            
             string storedProcedureName = "SP_Insert_Client";
@@ -88,11 +112,20 @@ namespace appFacturador.Config
             return productList;
         }
 
+        public List<ClientModel> getRegisteredClients() {
+            ConnectToDatabase();
+            List<ClientModel> clientList = FetchDatabaseClients();
+            DisconnectToDatabase();
+            return clientList;
+        }
+
         public void registerNewClient(ClientModel client) {
             ConnectToDatabase();
             InsertClientRecord(client);
             DisconnectToDatabase();
         }
+
+        
 
 
         #endregion

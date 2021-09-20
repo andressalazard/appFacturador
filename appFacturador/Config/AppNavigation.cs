@@ -1,4 +1,5 @@
-﻿using appFacturador.Models;
+﻿using appFacturador.Forms;
+using appFacturador.Models;
 using appFacturador.Views;
 using System;
 using System.Collections.Generic;
@@ -22,6 +23,14 @@ namespace appFacturador.Config
             OriginView.Hide();
             RegisteredClientsView registeredClientsView = new RegisteredClientsView();
             registeredClientsView.ShowDialog();
+            OriginView.Close();
+        }
+
+        public void NavigateToHomeView(Form OriginView)
+        {
+            OriginView.Hide();
+            HomeView homeView = new HomeView();
+            homeView.ShowDialog();
             OriginView.Close();
         }
 
