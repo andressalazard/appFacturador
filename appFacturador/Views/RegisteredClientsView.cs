@@ -15,10 +15,12 @@ namespace appFacturador.Views
     public partial class RegisteredClientsView : Form
     {
         DataTable clientTable;
+        ClientModel selectedClient = null;
 
         public RegisteredClientsView()
         {
             InitializeComponent();
+            SetProductPurchaseBtnBehavior();
         }
 
         #region onInit Methods
@@ -34,7 +36,10 @@ namespace appFacturador.Views
                 clientTable.Columns.Add(field);
             }
             gridRegisteredClients.DataSource = clientTable;
+
         }
+
+
 
         private void populateClientsTable() {
             DBConnection connection = new DBConnection();
@@ -67,16 +72,55 @@ namespace appFacturador.Views
             AppNavigation navigation = new AppNavigation();
             navigation.NavigateToHomeView(this);
         }
+
+        private void btnGoToProductsView_Click(object sender, EventArgs e)
+        {
+            AppNavigation navigation = new AppNavigation();
+            navigation.NavigateToProductsView(this, selectedClient);
+        }
         #endregion
 
-        private void gridRegisteredClients_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void gridRegisteredClients_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex != -1) {
+                selectedClient = new ClientModel();
+                DataGridViewRow dgvRow = gridRegisteredClients.Rows[e.RowIndex];
 
+                selectedClient.ClientId = Convert.ToInt32(dgvRow.Cells[0].Value);
+                selectedClient.FirstName = dgvRow.Cells[1].Value.ToString();
+                selectedClient.LastName = dgvRow.Cells[2].Value.ToString();
+                selectedClient.Phone = dgvRow.Cells[3].Value.ToString();
+                selectedClient.Email = dgvRow.Cells[4].Value.ToString();
+                selectedClient.Address = dgvRow.Cells[5].Value.ToString();
+            }
+
+            UpdateUI();
         }
 
-        private void panel5_Paint(object sender, PaintEventArgs e)
-        {
-
+        private void DisplaySelectedClient() {
+            if (selectedClient != null) {
+                txtFirstName.Text = selectedClient.FirstName;
+                txtLastName.Text = selectedClient.LastName;
+                txtPhone.Text = selectedClient.Phone;
+                txtEmail.Text = selectedClient.Email;
+                txtAddress.Text = selectedClient.Address;
+            }
         }
+
+        private void SetProductPurchaseBtnBehavior(){
+            if (selectedClient != null){
+                btnGoToProductsView.Enabled = true;
+            }
+            else {
+                btnGoToProductsView.Enabled = false;
+            }
+        }
+
+        private void UpdateUI() {
+            DisplaySelectedClient();
+            SetProductPurchaseBtnBehavior();
+        }
+
+        
     }
 }
