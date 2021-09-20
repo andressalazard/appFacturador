@@ -1,4 +1,6 @@
-﻿using appFacturador.UserControls;
+﻿using appFacturador.Config;
+using appFacturador.Models;
+using appFacturador.UserControls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -24,7 +26,7 @@ namespace appFacturador.Views
 
         private void ProductSelectionView_Load_1(object sender, EventArgs e)
         {
-            populateProductItems();
+            populateAvailableProducts();
         }
 
         private void InitializeSummaryGrid() {
@@ -36,56 +38,24 @@ namespace appFacturador.Views
             gridSummary.DataSource = summaryPurchase;
         }
 
-        private void populateProductItems() {
-            availableProducts = new ProductItem[10];
-            string[] productTitles = {
-               "Chef Antons Cajun Seasoning",
-               "Aniseed Syrup",
-               "Mishi Kobe Niku",
-               "Queso Cabrales",
-               "Gustafs Knäckebröd",
-               "Guarana Fantastica",
-               "Konbu",
-               "Tofu",
-               "Pavlova",
-               "Sir Rodneys Marmalade"
-            };
-            string[] productCategories = {
-              "Cooking",
-              "Condiments",
-              "Meat/Pouldry",
-              "Dairy Products",
-              "Grains/Cereals",
-              "Beverages",
-              "SeaFood",
-              "Produce",
-              "Produce",
-              "Confections"
-            };
+        private void populateAvailableProducts() {
+            DBConnection connection = new DBConnection();
+            List<ProductModel>dbProducts =  connection.getAvailableProducts();
+            availableProducts = new ProductItem[dbProducts.Count];
 
-            decimal[] productPrices = {
-              22.00M,
-              22.00M,
-              97.00M,
-              21.00M,
-              21.00M,
-              4.50M,
-              4.50M,
-              23.75M,
-              17.45M,
-              81.00M
-            };
-
-            for (int i = 0; i < availableProducts.Length; i++) {
-                availableProducts[i] = new ProductItem();
-                availableProducts[i].ProductTitle = productTitles[i];
-                availableProducts[i].ProductCategory = productCategories[i];
-                availableProducts[i].ProductPrice = productPrices[i];
+            for (int i = 0; i < dbProducts.Count; i++) {
+                ProductItem productItem = new ProductItem(
+                dbProducts[i].ProductId,
+                dbProducts[i].ProductName,
+                dbProducts[i].ProductPrice,
+                dbProducts[i].ProductCategory);
+                availableProducts[i] = productItem;
 
                 flowLayoutPanel1.Controls.Add(availableProducts[i]);
                 availableProducts[i].ProductIsSelectedEvent += Item_ProductIsSelectedEvent;
             }
         }
+
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -99,7 +69,7 @@ namespace appFacturador.Views
 
         private void btnSavePurchase_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void ShowSelectedProductItems() {

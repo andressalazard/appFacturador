@@ -61,6 +61,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Config\DBConnection.cs" />
     <Compile Include="Controllers\Client.cs" />
     <Compile Include="Controllers\Product.cs" />
     <Compile Include="Models\ClientModel.cs" />

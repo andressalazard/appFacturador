@@ -14,6 +14,7 @@ namespace appFacturador.UserControls
     {
         #region Attributes
 
+        private int _productID;
         private string _productTitle;
         private string _productCategory;
         private decimal _productPrice;
@@ -30,8 +31,34 @@ namespace appFacturador.UserControls
             this.IsSelected = false;
         }
 
+        public ProductItem(int prodID, string prodTitle, decimal prodPrice, string prodCategory) {
+            Console.WriteLine($"prodID: {prodID}, prodTitle: {prodTitle}, prodPrice: {prodPrice}, prodCategory: {prodCategory}");
+
+
+            InitializeComponent();
+            this.ProductID = prodID;
+            this.ProductTitle = prodTitle;
+            this.ProductPrice = prodPrice;
+            this.ProductCategory = prodCategory;
+            this.IsSelected = false;
+
+            
+        }
+
+
 
         #region Getter-Setter Methods
+
+        
+
+        
+        [Category("Custom Props")]
+        public int ProductID
+        {
+            get { return _productID; }
+            set { _productID = value; }
+        }
+
 
         [Category("Custom Props")]
         public string ProductTitle
