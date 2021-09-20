@@ -1,4 +1,5 @@
 ﻿using appFacturador.Config;
+using appFacturador.Controllers;
 using appFacturador.Models;
 using appFacturador.UserControls;
 using System;
@@ -17,18 +18,24 @@ namespace appFacturador.Views
     {
         ProductItem[] availableProducts;
         DataTable summaryPurchase;
+        ClientModel selectedClient;
         
-        public ProductSelectionView()
+        public ProductSelectionView(ClientModel client=null)
         {
             InitializeComponent();
             InitializeSummaryGrid();
+            this.selectedClient = client;
         }
+
+
 
         private void ProductSelectionView_Load_1(object sender, EventArgs e)
         {
             populateAvailableProducts();
+            this.showCurrentClient();
         }
 
+        #region Initialization
         private void InitializeSummaryGrid() {
             summaryPurchase = new DataTable();
             string[] fieldNames = { "ProductName", "Units", "Total" };
@@ -55,6 +62,13 @@ namespace appFacturador.Views
                 availableProducts[i].ProductIsSelectedEvent += Item_ProductIsSelectedEvent;
             }
         }
+        private void showCurrentClient() {
+            if (this.selectedClient != null) {
+                lblClientName.Text = $"{this.selectedClient.FirstName} {this.selectedClient.LastName}";
+            }
+        }
+        #endregion
+
 
 
         private void label1_Click(object sender, EventArgs e)
@@ -67,10 +81,6 @@ namespace appFacturador.Views
 
         }
 
-        private void btnSavePurchase_Click(object sender, EventArgs e)
-        {
-            
-        }
 
         private void ShowSelectedProductItems() {
             foreach (ProductItem item in availableProducts) { 
@@ -96,7 +106,7 @@ namespace appFacturador.Views
         }
 
 
-        #region Events
+        #region Custom Events
         private void Item_ProductIsSelectedEvent(object sender, ProductItem item)
         {
             DisplaySelectedProducts();
@@ -104,9 +114,16 @@ namespace appFacturador.Views
 
         #endregion
 
+        #region
         private void btnClearFields_Click(object sender, EventArgs e)
         {
             ClearSelection();
         }
+
+        private void btnSavePurchase_Click(object sender, EventArgs e)
+        {
+
+        }
+        #endregion
     }
 }

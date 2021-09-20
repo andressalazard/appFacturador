@@ -1,4 +1,5 @@
-﻿using appFacturador.Views;
+﻿using appFacturador.Config;
+using appFacturador.Views;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -28,7 +29,8 @@ namespace appFacturador.Forms
 
         private void btnSearchClient_Click(object sender, EventArgs e)
         {
-        
+            AppNavigation navigation = new AppNavigation();
+            navigation.NavigateToRegisteredClientsView(this);
         }
 
         private void btnShowProductsView_Click(object sender, EventArgs e)

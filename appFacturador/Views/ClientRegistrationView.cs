@@ -1,4 +1,5 @@
 ﻿using appFacturador.Config;
+using appFacturador.Controllers;
 using appFacturador.Models;
 using System;
 using System.Collections.Generic;
@@ -41,36 +42,35 @@ namespace appFacturador.Forms
             registerClientRecord();
         }
 
-        private ClientModel generateClientRecord() {
-            ClientModel clientRecord;
-
+        private ClientModel GenerateClientRecord() {
+            Client client = new Client();
+            
             if (txtFirstName.Text != "" &&
                 txtLastName.Text != "" &&
                 txtPhone.Text != "" &&
                 txtEmail.Text != "" &&
                 txtAddress.Text != "")
             {
-
-                clientRecord = new ClientModel(
-                  txtFirstName.Text, txtLastName.Text,
-                  txtPhone.Text, txtEmail.Text, txtAddress.Text);
-
-                return clientRecord;
+                client.SetSelectedClient(client.GenerateClient(txtFirstName.Text, txtLastName.Text,
+                    txtPhone.Text, txtEmail.Text, txtAddress.Text));
             }
             else {
                 MessageBox.Show("Llene todos los campos!");
-                return clientRecord = null;
+                client.SetSelectedClient(null);
             }
+
+            return client.GetSelectedClient();
         }
 
         private void registerClientRecord() {
-            ClientModel record = generateClientRecord();
+            ClientModel record = GenerateClientRecord();
 
             if (record != null) {
                 DBConnection connection = new DBConnection();
                 connection.registerNewClient(record);
+                AppNavigation navigation = new AppNavigation();
+                navigation.NavigateToProductsView(this, record);
             }
-
         }
     }
 }

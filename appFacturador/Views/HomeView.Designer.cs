@@ -33,9 +33,9 @@ namespace appFacturador.Forms
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btnShowProductsView = new System.Windows.Forms.Button();
             this.btnCreateClient = new System.Windows.Forms.Button();
             this.btnSearchClient = new System.Windows.Forms.Button();
-            this.btnShowProductsView = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -89,6 +89,18 @@ namespace appFacturador.Forms
             this.panel3.Size = new System.Drawing.Size(739, 283);
             this.panel3.TabIndex = 3;
             // 
+            // btnShowProductsView
+            // 
+            this.btnShowProductsView.Font = new System.Drawing.Font("FontAwesome", 21.75F);
+            this.btnShowProductsView.Location = new System.Drawing.Point(352, 38);
+            this.btnShowProductsView.Name = "btnShowProductsView";
+            this.btnShowProductsView.Size = new System.Drawing.Size(270, 92);
+            this.btnShowProductsView.TabIndex = 5;
+            this.btnShowProductsView.Text = "Consultar Productos";
+            this.btnShowProductsView.UseVisualStyleBackColor = true;
+            this.btnShowProductsView.Visible = false;
+            this.btnShowProductsView.Click += new System.EventHandler(this.btnShowProductsView_Click);
+            // 
             // btnCreateClient
             // 
             this.btnCreateClient.Font = new System.Drawing.Font("FontAwesome", 21.75F);
@@ -110,17 +122,6 @@ namespace appFacturador.Forms
             this.btnSearchClient.Text = "Consultar Cliente";
             this.btnSearchClient.UseVisualStyleBackColor = true;
             this.btnSearchClient.Click += new System.EventHandler(this.btnSearchClient_Click);
-            // 
-            // btnShowProductsView
-            // 
-            this.btnShowProductsView.Font = new System.Drawing.Font("FontAwesome", 21.75F);
-            this.btnShowProductsView.Location = new System.Drawing.Point(352, 38);
-            this.btnShowProductsView.Name = "btnShowProductsView";
-            this.btnShowProductsView.Size = new System.Drawing.Size(270, 92);
-            this.btnShowProductsView.TabIndex = 5;
-            this.btnShowProductsView.Text = "Consultar Productos";
-            this.btnShowProductsView.UseVisualStyleBackColor = true;
-            this.btnShowProductsView.Click += new System.EventHandler(this.btnShowProductsView_Click);
             // 
             // HomeView
             // 
