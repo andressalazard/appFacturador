@@ -12,6 +12,13 @@ namespace appFacturador.Config
 {
     class AppNavigation
     {
+        public void NavigateToClientRegistrationView(Form OriginView) {
+            OriginView.Hide();
+            ClientRegistrationView registrationView = new ClientRegistrationView();
+            registrationView.ShowDialog();
+            OriginView.Close();
+        }
+        
         public void NavigateToProductsView( Form OriginView, ClientModel currentClient ) {
             OriginView.Hide();
             ProductSelectionView productsView = new ProductSelectionView(currentClient);

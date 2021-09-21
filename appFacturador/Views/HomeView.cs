@@ -21,10 +21,8 @@ namespace appFacturador.Forms
 
         private void btnCreateClient_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            ClientRegistrationView registrationView = new ClientRegistrationView();
-            registrationView.ShowDialog();
-            this.Close();
+            AppNavigation navigation = new AppNavigation();
+            navigation.NavigateToClientRegistrationView(this);
         }
 
         private void btnSearchClient_Click(object sender, EventArgs e)
@@ -35,10 +33,6 @@ namespace appFacturador.Forms
 
         private void btnShowProductsView_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            ProductSelectionView productView = new ProductSelectionView();
-            productView.ShowDialog();
-            this.Close();
         }
 
         private void btnInvoiceViewer_Click(object sender, EventArgs e)

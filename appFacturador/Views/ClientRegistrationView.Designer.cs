@@ -32,8 +32,6 @@ namespace appFacturador.Forms
             this.ClientGeneratorView = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
-            this.btnSaveRecord = new System.Windows.Forms.Button();
-            this.btnClearFields = new System.Windows.Forms.Button();
             this.panel9 = new System.Windows.Forms.Panel();
             this.txtAddress = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -51,6 +49,8 @@ namespace appFacturador.Forms
             this.label3 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnSaveRecord = new System.Windows.Forms.Button();
+            this.btnClearFields = new System.Windows.Forms.Button();
             this.btnReturnHome = new System.Windows.Forms.Button();
             this.ClientGeneratorView.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -96,28 +96,6 @@ namespace appFacturador.Forms
             this.panel10.Size = new System.Drawing.Size(736, 69);
             this.panel10.TabIndex = 5;
             // 
-            // btnSaveRecord
-            // 
-            this.btnSaveRecord.Font = new System.Drawing.Font("FontAwesome", 15.75F);
-            this.btnSaveRecord.Location = new System.Drawing.Point(388, 10);
-            this.btnSaveRecord.Name = "btnSaveRecord";
-            this.btnSaveRecord.Size = new System.Drawing.Size(169, 49);
-            this.btnSaveRecord.TabIndex = 1;
-            this.btnSaveRecord.Text = "Guardar Registro";
-            this.btnSaveRecord.UseVisualStyleBackColor = true;
-            this.btnSaveRecord.Click += new System.EventHandler(this.btnSaveRecord_Click);
-            // 
-            // btnClearFields
-            // 
-            this.btnClearFields.Font = new System.Drawing.Font("FontAwesome", 15.75F);
-            this.btnClearFields.Location = new System.Drawing.Point(196, 10);
-            this.btnClearFields.Name = "btnClearFields";
-            this.btnClearFields.Size = new System.Drawing.Size(169, 49);
-            this.btnClearFields.TabIndex = 0;
-            this.btnClearFields.Text = "Limpiar Campos";
-            this.btnClearFields.UseVisualStyleBackColor = true;
-            this.btnClearFields.Click += new System.EventHandler(this.btnClearFields_Click);
-            // 
             // panel9
             // 
             this.panel9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -141,9 +119,9 @@ namespace appFacturador.Forms
             this.label7.Font = new System.Drawing.Font("Perpetua Titling MT", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(16, 23);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(122, 23);
+            this.label7.Size = new System.Drawing.Size(97, 23);
             this.label7.TabIndex = 0;
-            this.label7.Text = "dirección";
+            this.label7.Text = "Address";
             // 
             // panel7
             // 
@@ -195,9 +173,9 @@ namespace appFacturador.Forms
             this.label4.Font = new System.Drawing.Font("Perpetua Titling MT", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(16, 23);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(104, 23);
+            this.label4.Size = new System.Drawing.Size(113, 23);
             this.label4.TabIndex = 0;
-            this.label4.Text = "apellido";
+            this.label4.Text = "LastName";
             // 
             // panel8
             // 
@@ -222,9 +200,9 @@ namespace appFacturador.Forms
             this.label6.Font = new System.Drawing.Font("Perpetua Titling MT", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(16, 23);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(113, 23);
+            this.label6.Size = new System.Drawing.Size(80, 23);
             this.label6.TabIndex = 0;
-            this.label6.Text = "teléfono";
+            this.label6.Text = "Phone";
             // 
             // panel5
             // 
@@ -238,9 +216,9 @@ namespace appFacturador.Forms
             // 
             // txtFirstName
             // 
-            this.txtFirstName.Location = new System.Drawing.Point(116, 23);
+            this.txtFirstName.Location = new System.Drawing.Point(135, 23);
             this.txtFirstName.Name = "txtFirstName";
-            this.txtFirstName.Size = new System.Drawing.Size(244, 20);
+            this.txtFirstName.Size = new System.Drawing.Size(225, 20);
             this.txtFirstName.TabIndex = 1;
             // 
             // label3
@@ -249,9 +227,9 @@ namespace appFacturador.Forms
             this.label3.Font = new System.Drawing.Font("Perpetua Titling MT", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(16, 23);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(94, 23);
+            this.label3.Size = new System.Drawing.Size(118, 23);
             this.label3.TabIndex = 0;
-            this.label3.Text = "Nombre";
+            this.label3.Text = "FirstName";
             // 
             // panel3
             // 
@@ -268,18 +246,52 @@ namespace appFacturador.Forms
             this.label2.Font = new System.Drawing.Font("Perpetua Titling MT", 24F);
             this.label2.Location = new System.Drawing.Point(256, 9);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(273, 38);
+            this.label2.Size = new System.Drawing.Size(215, 38);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Nuevo Cliente";
+            this.label2.Text = "New Client";
+            // 
+            // btnSaveRecord
+            // 
+            this.btnSaveRecord.Font = new System.Drawing.Font("Malgun Gothic", 14.25F, System.Drawing.FontStyle.Bold);
+            this.btnSaveRecord.Image = global::appFacturador.Properties.Resources.baseline_save_alt_black_24dp;
+            this.btnSaveRecord.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSaveRecord.Location = new System.Drawing.Point(388, 10);
+            this.btnSaveRecord.Name = "btnSaveRecord";
+            this.btnSaveRecord.Padding = new System.Windows.Forms.Padding(5, 0, 10, 0);
+            this.btnSaveRecord.Size = new System.Drawing.Size(169, 49);
+            this.btnSaveRecord.TabIndex = 1;
+            this.btnSaveRecord.Text = "Save Record";
+            this.btnSaveRecord.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSaveRecord.UseVisualStyleBackColor = true;
+            this.btnSaveRecord.Click += new System.EventHandler(this.btnSaveRecord_Click);
+            // 
+            // btnClearFields
+            // 
+            this.btnClearFields.Font = new System.Drawing.Font("Malgun Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClearFields.Image = global::appFacturador.Properties.Resources.outline_delete_black_24dp;
+            this.btnClearFields.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnClearFields.Location = new System.Drawing.Point(196, 10);
+            this.btnClearFields.Name = "btnClearFields";
+            this.btnClearFields.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.btnClearFields.Size = new System.Drawing.Size(169, 49);
+            this.btnClearFields.TabIndex = 0;
+            this.btnClearFields.Text = "Clear Fields";
+            this.btnClearFields.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnClearFields.UseVisualStyleBackColor = true;
+            this.btnClearFields.Click += new System.EventHandler(this.btnClearFields_Click);
             // 
             // btnReturnHome
             // 
-            this.btnReturnHome.Font = new System.Drawing.Font("FontAwesome", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReturnHome.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Bold);
+            this.btnReturnHome.Image = global::appFacturador.Properties.Resources.outline_home_black_24dp1;
+            this.btnReturnHome.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnReturnHome.Location = new System.Drawing.Point(3, 8);
             this.btnReturnHome.Name = "btnReturnHome";
-            this.btnReturnHome.Size = new System.Drawing.Size(170, 41);
+            this.btnReturnHome.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.btnReturnHome.Size = new System.Drawing.Size(147, 41);
             this.btnReturnHome.TabIndex = 1;
-            this.btnReturnHome.Text = "Regresar al Inicio";
+            this.btnReturnHome.Text = "Return Home";
+            this.btnReturnHome.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnReturnHome.UseVisualStyleBackColor = true;
             this.btnReturnHome.Click += new System.EventHandler(this.btnReturnHome_Click);
             // 

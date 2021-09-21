@@ -64,7 +64,8 @@ namespace appFacturador.Views
         #region Event Handlers
         private void btnCreateRecord_Click(object sender, EventArgs e)
         {
-
+            AppNavigation navigation = new AppNavigation();
+            navigation.NavigateToClientRegistrationView(this);
         }
 
         private void btnReturn_Click(object sender, EventArgs e)

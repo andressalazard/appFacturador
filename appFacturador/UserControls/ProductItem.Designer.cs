@@ -36,10 +36,10 @@ namespace appFacturador.UserControls
             this.lblSelected = new System.Windows.Forms.Label();
             this.txtProductUnits = new System.Windows.Forms.TextBox();
             this.btnIncrement = new System.Windows.Forms.Button();
-            this.btnDecrement = new System.Windows.Forms.Button();
             this.lblProductCategory = new System.Windows.Forms.Label();
             this.lblProductTitle = new System.Windows.Forms.Label();
             this.ckBoxProduct = new System.Windows.Forms.CheckBox();
+            this.btnDecrement = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -114,26 +114,13 @@ namespace appFacturador.UserControls
             // 
             this.btnIncrement.Enabled = false;
             this.btnIncrement.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIncrement.Image = global::appFacturador.Properties.Resources.baseline_add_black_24dp;
             this.btnIncrement.Location = new System.Drawing.Point(157, 34);
             this.btnIncrement.Name = "btnIncrement";
             this.btnIncrement.Size = new System.Drawing.Size(27, 23);
             this.btnIncrement.TabIndex = 9;
-            this.btnIncrement.Text = "+";
             this.btnIncrement.UseVisualStyleBackColor = true;
             this.btnIncrement.Click += new System.EventHandler(this.btnIncrement_Click_1);
-            // 
-            // btnDecrement
-            // 
-            this.btnDecrement.Enabled = false;
-            this.btnDecrement.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDecrement.Location = new System.Drawing.Point(7, 35);
-            this.btnDecrement.Margin = new System.Windows.Forms.Padding(0);
-            this.btnDecrement.Name = "btnDecrement";
-            this.btnDecrement.Size = new System.Drawing.Size(29, 23);
-            this.btnDecrement.TabIndex = 10;
-            this.btnDecrement.Text = "-";
-            this.btnDecrement.UseVisualStyleBackColor = true;
-            this.btnDecrement.Click += new System.EventHandler(this.btnDecrement_Click_1);
             // 
             // lblProductCategory
             // 
@@ -165,6 +152,19 @@ namespace appFacturador.UserControls
             this.ckBoxProduct.TabIndex = 6;
             this.ckBoxProduct.UseVisualStyleBackColor = true;
             this.ckBoxProduct.CheckedChanged += new System.EventHandler(this.ckBoxProduct_CheckedChanged_1);
+            // 
+            // btnDecrement
+            // 
+            this.btnDecrement.Enabled = false;
+            this.btnDecrement.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDecrement.Image = global::appFacturador.Properties.Resources.baseline_remove_black_24dp;
+            this.btnDecrement.Location = new System.Drawing.Point(7, 35);
+            this.btnDecrement.Margin = new System.Windows.Forms.Padding(0);
+            this.btnDecrement.Name = "btnDecrement";
+            this.btnDecrement.Size = new System.Drawing.Size(29, 23);
+            this.btnDecrement.TabIndex = 10;
+            this.btnDecrement.UseVisualStyleBackColor = true;
+            this.btnDecrement.Click += new System.EventHandler(this.btnDecrement_Click_1);
             // 
             // ProductItem
             // 

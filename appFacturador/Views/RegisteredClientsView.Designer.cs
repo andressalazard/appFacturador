@@ -32,6 +32,10 @@ namespace appFacturador.Views
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnCreateRecord = new System.Windows.Forms.Button();
             this.panel11 = new System.Windows.Forms.Panel();
             this.txtAddress = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -54,12 +58,12 @@ namespace appFacturador.Views
             this.label1 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.btnGoToProductsView = new System.Windows.Forms.Button();
-            this.btnCreateRecord = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnReturn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
+            this.panel12.SuspendLayout();
             this.panel11.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -78,7 +82,7 @@ namespace appFacturador.Views
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 450);
+            this.panel1.Size = new System.Drawing.Size(800, 475);
             this.panel1.TabIndex = 0;
             // 
             // panel5
@@ -86,39 +90,91 @@ namespace appFacturador.Views
             this.panel5.Controls.Add(this.panel6);
             this.panel5.Controls.Add(this.gridRegisteredClients);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel5.Location = new System.Drawing.Point(0, 93);
+            this.panel5.Location = new System.Drawing.Point(0, 99);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(800, 357);
+            this.panel5.Size = new System.Drawing.Size(800, 376);
             this.panel5.TabIndex = 1;
             // 
             // panel6
             // 
+            this.panel6.Controls.Add(this.panel12);
             this.panel6.Controls.Add(this.panel11);
             this.panel6.Controls.Add(this.panel9);
             this.panel6.Controls.Add(this.panel8);
             this.panel6.Controls.Add(this.panel10);
             this.panel6.Controls.Add(this.panel7);
             this.panel6.Controls.Add(this.label3);
-            this.panel6.Location = new System.Drawing.Point(21, 10);
+            this.panel6.Location = new System.Drawing.Point(21, 5);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(763, 102);
+            this.panel6.Size = new System.Drawing.Size(763, 126);
             this.panel6.TabIndex = 1;
+            // 
+            // panel12
+            // 
+            this.panel12.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.panel12.Controls.Add(this.button2);
+            this.panel12.Controls.Add(this.button1);
+            this.panel12.Controls.Add(this.btnCreateRecord);
+            this.panel12.Location = new System.Drawing.Point(443, 8);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(310, 109);
+            this.panel12.TabIndex = 9;
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Bold);
+            this.button2.Image = global::appFacturador.Properties.Resources.outline_manage_accounts_black_24dp;
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button2.Location = new System.Drawing.Point(14, 54);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(139, 39);
+            this.button2.TabIndex = 1;
+            this.button2.Text = "Update Client";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Bold);
+            this.button1.Image = global::appFacturador.Properties.Resources.outline_person_remove_black_24dp;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button1.Location = new System.Drawing.Point(159, 54);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(139, 39);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Delete Client";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // btnCreateRecord
+            // 
+            this.btnCreateRecord.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCreateRecord.Image = global::appFacturador.Properties.Resources.outline_person_add_black_24dp;
+            this.btnCreateRecord.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCreateRecord.Location = new System.Drawing.Point(14, 8);
+            this.btnCreateRecord.Name = "btnCreateRecord";
+            this.btnCreateRecord.Padding = new System.Windows.Forms.Padding(5, 0, 10, 0);
+            this.btnCreateRecord.Size = new System.Drawing.Size(284, 42);
+            this.btnCreateRecord.TabIndex = 0;
+            this.btnCreateRecord.Text = "New Client";
+            this.btnCreateRecord.UseVisualStyleBackColor = false;
+            this.btnCreateRecord.Click += new System.EventHandler(this.btnCreateRecord_Click);
             // 
             // panel11
             // 
             this.panel11.Controls.Add(this.txtAddress);
             this.panel11.Controls.Add(this.label8);
-            this.panel11.Location = new System.Drawing.Point(457, 62);
+            this.panel11.Location = new System.Drawing.Point(7, 90);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(303, 22);
+            this.panel11.Size = new System.Drawing.Size(412, 22);
             this.panel11.TabIndex = 8;
             // 
             // txtAddress
             // 
             this.txtAddress.Dock = System.Windows.Forms.DockStyle.Right;
-            this.txtAddress.Location = new System.Drawing.Point(66, 0);
+            this.txtAddress.Location = new System.Drawing.Point(77, 0);
             this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(237, 20);
+            this.txtAddress.Size = new System.Drawing.Size(335, 20);
             this.txtAddress.TabIndex = 1;
             // 
             // label8
@@ -137,13 +193,13 @@ namespace appFacturador.Views
             this.panel9.Controls.Add(this.label6);
             this.panel9.Location = new System.Drawing.Point(230, 62);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(212, 22);
+            this.panel9.Size = new System.Drawing.Size(189, 22);
             this.panel9.TabIndex = 7;
             // 
             // txtEmail
             // 
             this.txtEmail.Dock = System.Windows.Forms.DockStyle.Right;
-            this.txtEmail.Location = new System.Drawing.Point(77, 0);
+            this.txtEmail.Location = new System.Drawing.Point(54, 0);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(135, 20);
             this.txtEmail.TabIndex = 1;
@@ -191,13 +247,13 @@ namespace appFacturador.Views
             this.panel10.Controls.Add(this.label7);
             this.panel10.Location = new System.Drawing.Point(230, 34);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(212, 22);
+            this.panel10.Size = new System.Drawing.Size(189, 22);
             this.panel10.TabIndex = 6;
             // 
             // txtPhone
             // 
             this.txtPhone.Dock = System.Windows.Forms.DockStyle.Right;
-            this.txtPhone.Location = new System.Drawing.Point(77, 0);
+            this.txtPhone.Location = new System.Drawing.Point(54, 0);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(135, 20);
             this.txtPhone.TabIndex = 1;
@@ -251,8 +307,9 @@ namespace appFacturador.Views
             // 
             // gridRegisteredClients
             // 
+            this.gridRegisteredClients.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gridRegisteredClients.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridRegisteredClients.Location = new System.Drawing.Point(21, 115);
+            this.gridRegisteredClients.Location = new System.Drawing.Point(21, 132);
             this.gridRegisteredClients.Name = "gridRegisteredClients";
             this.gridRegisteredClients.Size = new System.Drawing.Size(763, 231);
             this.gridRegisteredClients.TabIndex = 0;
@@ -275,7 +332,7 @@ namespace appFacturador.Views
             this.label2.Font = new System.Drawing.Font("Malgun Gothic", 10F);
             this.label2.Location = new System.Drawing.Point(185, 48);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(436, 42);
+            this.label2.Size = new System.Drawing.Size(421, 42);
             this.label2.TabIndex = 3;
             this.label2.Text = "The list below displays all registered Clients in the App\r\n";
             // 
@@ -292,34 +349,27 @@ namespace appFacturador.Views
             // panel4
             // 
             this.panel4.Controls.Add(this.btnGoToProductsView);
-            this.panel4.Controls.Add(this.btnCreateRecord);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel4.Location = new System.Drawing.Point(636, 0);
+            this.panel4.Location = new System.Drawing.Point(623, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(164, 100);
+            this.panel4.Size = new System.Drawing.Size(177, 100);
             this.panel4.TabIndex = 1;
             // 
             // btnGoToProductsView
             // 
-            this.btnGoToProductsView.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
-            this.btnGoToProductsView.Location = new System.Drawing.Point(13, 49);
+            this.btnGoToProductsView.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.btnGoToProductsView.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Bold);
+            this.btnGoToProductsView.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnGoToProductsView.Image = global::appFacturador.Properties.Resources.outline_shopping_cart_black_24dp;
+            this.btnGoToProductsView.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnGoToProductsView.Location = new System.Drawing.Point(19, 28);
             this.btnGoToProductsView.Name = "btnGoToProductsView";
-            this.btnGoToProductsView.Size = new System.Drawing.Size(143, 42);
+            this.btnGoToProductsView.Size = new System.Drawing.Size(137, 42);
             this.btnGoToProductsView.TabIndex = 1;
-            this.btnGoToProductsView.Text = "Purchase Products";
-            this.btnGoToProductsView.UseVisualStyleBackColor = true;
+            this.btnGoToProductsView.Text = "Buy Products";
+            this.btnGoToProductsView.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGoToProductsView.UseVisualStyleBackColor = false;
             this.btnGoToProductsView.Click += new System.EventHandler(this.btnGoToProductsView_Click);
-            // 
-            // btnCreateRecord
-            // 
-            this.btnCreateRecord.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
-            this.btnCreateRecord.Location = new System.Drawing.Point(12, 5);
-            this.btnCreateRecord.Name = "btnCreateRecord";
-            this.btnCreateRecord.Size = new System.Drawing.Size(143, 42);
-            this.btnCreateRecord.TabIndex = 0;
-            this.btnCreateRecord.Text = "Register \r\nnew client";
-            this.btnCreateRecord.UseVisualStyleBackColor = true;
-            this.btnCreateRecord.Click += new System.EventHandler(this.btnCreateRecord_Click);
             // 
             // panel3
             // 
@@ -332,12 +382,15 @@ namespace appFacturador.Views
             // 
             // btnReturn
             // 
-            this.btnReturn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.btnReturn.Location = new System.Drawing.Point(21, 29);
+            this.btnReturn.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Bold);
+            this.btnReturn.Image = global::appFacturador.Properties.Resources.outline_home_black_24dp1;
+            this.btnReturn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnReturn.Location = new System.Drawing.Point(8, 32);
             this.btnReturn.Name = "btnReturn";
-            this.btnReturn.Size = new System.Drawing.Size(110, 45);
+            this.btnReturn.Size = new System.Drawing.Size(136, 45);
             this.btnReturn.TabIndex = 0;
-            this.btnReturn.Text = "Return\r\nHome";
+            this.btnReturn.Text = "Return Home\r\n";
+            this.btnReturn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnReturn.UseVisualStyleBackColor = true;
             this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
             // 
@@ -345,7 +398,7 @@ namespace appFacturador.Views
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 475);
             this.Controls.Add(this.panel1);
             this.Name = "RegisteredClientsView";
             this.Text = "RegisteredClientsView";
@@ -354,6 +407,7 @@ namespace appFacturador.Views
             this.panel5.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
+            this.panel12.ResumeLayout(false);
             this.panel11.ResumeLayout(false);
             this.panel11.PerformLayout();
             this.panel9.ResumeLayout(false);
@@ -381,7 +435,6 @@ namespace appFacturador.Views
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btnCreateRecord;
         private System.Windows.Forms.Button btnReturn;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.DataGridView gridRegisteredClients;
@@ -403,5 +456,9 @@ namespace appFacturador.Views
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnGoToProductsView;
+        private System.Windows.Forms.Panel panel12;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnCreateRecord;
+        private System.Windows.Forms.Button button2;
     }
 }
