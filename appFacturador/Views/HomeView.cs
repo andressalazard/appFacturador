@@ -40,5 +40,11 @@ namespace appFacturador.Forms
             productView.ShowDialog();
             this.Close();
         }
+
+        private void btnInvoiceViewer_Click(object sender, EventArgs e)
+        {
+            AppNavigation navigation = new AppNavigation();
+            navigation.NavigateToInvoiceViewer(this);
+        }
     }
 }

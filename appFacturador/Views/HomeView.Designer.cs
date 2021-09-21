@@ -36,6 +36,7 @@ namespace appFacturador.Forms
             this.btnShowProductsView = new System.Windows.Forms.Button();
             this.btnCreateClient = new System.Windows.Forms.Button();
             this.btnSearchClient = new System.Windows.Forms.Button();
+            this.btnInvoiceViewer = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -81,6 +82,7 @@ namespace appFacturador.Forms
             this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panel3.Controls.Add(this.btnInvoiceViewer);
             this.panel3.Controls.Add(this.btnShowProductsView);
             this.panel3.Controls.Add(this.btnCreateClient);
             this.panel3.Controls.Add(this.btnSearchClient);
@@ -123,6 +125,17 @@ namespace appFacturador.Forms
             this.btnSearchClient.UseVisualStyleBackColor = true;
             this.btnSearchClient.Click += new System.EventHandler(this.btnSearchClient_Click);
             // 
+            // btnInvoiceViewer
+            // 
+            this.btnInvoiceViewer.Font = new System.Drawing.Font("Dubai", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInvoiceViewer.Location = new System.Drawing.Point(353, 136);
+            this.btnInvoiceViewer.Name = "btnInvoiceViewer";
+            this.btnInvoiceViewer.Size = new System.Drawing.Size(269, 92);
+            this.btnInvoiceViewer.TabIndex = 6;
+            this.btnInvoiceViewer.Text = "Invoice Viewer";
+            this.btnInvoiceViewer.UseVisualStyleBackColor = true;
+            this.btnInvoiceViewer.Click += new System.EventHandler(this.btnInvoiceViewer_Click);
+            // 
             // HomeView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -148,5 +161,6 @@ namespace appFacturador.Forms
         private System.Windows.Forms.Button btnCreateClient;
         private System.Windows.Forms.Button btnSearchClient;
         private System.Windows.Forms.Button btnShowProductsView;
+        private System.Windows.Forms.Button btnInvoiceViewer;
     }
 }

@@ -87,6 +87,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\InvoiceViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\InvoiceViewer.Designer.cs">
+      <DependentUpon>InvoiceViewer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\ProductSelectionView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,6 +122,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\HomeView.resx">
       <DependentUpon>HomeView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\InvoiceViewer.resx">
+      <DependentUpon>InvoiceViewer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\ProductSelectionView.resx">
       <DependentUpon>ProductSelectionView.cs</DependentUpon>

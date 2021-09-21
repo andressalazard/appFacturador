@@ -34,6 +34,13 @@ namespace appFacturador.Config
             OriginView.Close();
         }
 
+        public void NavigateToInvoiceViewer(Form OriginView) {
+            OriginView.Hide();
+            InvoiceViewer invoiceViewer = new InvoiceViewer();
+            invoiceViewer.ShowDialog();
+            OriginView.Close();
+        }
+
 
     }
 }
