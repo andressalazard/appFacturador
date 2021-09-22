@@ -48,6 +48,14 @@ namespace appFacturador.Config
             OriginView.Close();
         }
 
+        public void NavigateToInvoiceViewer(Form OriginView, 
+            ClientModel selectedClient, List<ProductModel> purchasedProducts) {
+            OriginView.Hide();
+            InvoiceViewer invoiceViewer = new InvoiceViewer(selectedClient, purchasedProducts);
+            invoiceViewer.ShowDialog();
+            OriginView.Close();
+        }
+
 
     }
 }

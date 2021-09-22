@@ -94,6 +94,20 @@ namespace appFacturador.Views
             }        
         }
 
+        private List<ProductModel> getSelectedProducts() {
+            List<ProductModel> purchasedProducts = new List<ProductModel>();
+            foreach (ProductItem item in availableProducts) {
+                if (item.IsSelected) {
+                  ProductModel product = new ProductModel(
+                    item.ProductID, item.ProductTitle, item.ProductPrice, 
+                    item.ProductCategory,item.SelectedUnits);
+                    purchasedProducts.Add(product);
+                }
+            }
+            return purchasedProducts;
+        }
+
+
         private void DisplaySelectedProducts() {
             InitializeSummaryGrid();
             ShowSelectedProductItems();
@@ -122,7 +136,8 @@ namespace appFacturador.Views
 
         private void btnSavePurchase_Click(object sender, EventArgs e)
         {
-
+            AppNavigation navigation = new AppNavigation();
+            navigation.NavigateToInvoiceViewer(this,selectedClient, getSelectedProducts());
         }
         #endregion
     }
