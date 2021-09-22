@@ -1,4 +1,5 @@
-﻿using appFacturador.Models;
+﻿using appFacturador.Config;
+using appFacturador.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -116,7 +117,7 @@ namespace appFacturador.Views
         }
 
         private void populateTaxesComboBox() {
-            string[] TaxNames = { "I.V.A", "I.C.E", "Normal Discount" };
+            string[] TaxNames = { "I.V.A", "I.C.E", "10%" };
             foreach (string taxName in TaxNames) {
                 cBoxTaxes.Items.Add(taxName);
             }
@@ -136,6 +137,16 @@ namespace appFacturador.Views
         {
             setTaxValue();
             displayInvoiceMount();
+        }
+
+        private void btnSaveInvoice_Click(object sender, EventArgs e)
+        {
+            returnToHome();
+        }
+
+        private void returnToHome() {
+            AppNavigation navigation = new AppNavigation();
+            navigation.NavigateToHomeView(this);
         }
     }
 }

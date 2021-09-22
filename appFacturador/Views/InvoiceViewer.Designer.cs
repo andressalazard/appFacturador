@@ -79,6 +79,9 @@ namespace appFacturador.Views
             this.panel16 = new System.Windows.Forms.Panel();
             this.label21 = new System.Windows.Forms.Label();
             this.cBoxTaxes = new System.Windows.Forms.ComboBox();
+            this.panel14 = new System.Windows.Forms.Panel();
+            this.btnDiscardInvoice = new System.Windows.Forms.Button();
+            this.btnSaveInvoice = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.pnlInvoiceInfo.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -98,6 +101,7 @@ namespace appFacturador.Views
             this.panel13.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInvoiceDetail)).BeginInit();
             this.panel16.SuspendLayout();
+            this.panel14.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -474,6 +478,7 @@ namespace appFacturador.Views
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.panel14);
             this.panel2.Controls.Add(this.panel16);
             this.panel2.Controls.Add(this.panel15);
             this.panel2.Controls.Add(this.panel13);
@@ -583,6 +588,44 @@ namespace appFacturador.Views
             this.cBoxTaxes.TabIndex = 1;
             this.cBoxTaxes.SelectedIndexChanged += new System.EventHandler(this.cBoxTaxes_SelectedIndexChanged);
             // 
+            // panel14
+            // 
+            this.panel14.Controls.Add(this.btnSaveInvoice);
+            this.panel14.Controls.Add(this.btnDiscardInvoice);
+            this.panel14.Location = new System.Drawing.Point(19, 216);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(402, 89);
+            this.panel14.TabIndex = 7;
+            // 
+            // btnDiscardInvoice
+            // 
+            this.btnDiscardInvoice.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Bold);
+            this.btnDiscardInvoice.Image = global::appFacturador.Properties.Resources.outline_delete_black_24dp;
+            this.btnDiscardInvoice.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnDiscardInvoice.Location = new System.Drawing.Point(7, 9);
+            this.btnDiscardInvoice.Name = "btnDiscardInvoice";
+            this.btnDiscardInvoice.Padding = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.btnDiscardInvoice.Size = new System.Drawing.Size(152, 33);
+            this.btnDiscardInvoice.TabIndex = 0;
+            this.btnDiscardInvoice.Text = "Discard Invoice";
+            this.btnDiscardInvoice.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDiscardInvoice.UseVisualStyleBackColor = true;
+            // 
+            // btnSaveInvoice
+            // 
+            this.btnSaveInvoice.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Bold);
+            this.btnSaveInvoice.Image = global::appFacturador.Properties.Resources.baseline_save_alt_black_24dp;
+            this.btnSaveInvoice.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSaveInvoice.Location = new System.Drawing.Point(7, 48);
+            this.btnSaveInvoice.Name = "btnSaveInvoice";
+            this.btnSaveInvoice.Padding = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.btnSaveInvoice.Size = new System.Drawing.Size(152, 33);
+            this.btnSaveInvoice.TabIndex = 0;
+            this.btnSaveInvoice.Text = "Save Invoice";
+            this.btnSaveInvoice.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSaveInvoice.UseVisualStyleBackColor = true;
+            this.btnSaveInvoice.Click += new System.EventHandler(this.btnSaveInvoice_Click);
+            // 
             // InvoiceViewer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -627,6 +670,7 @@ namespace appFacturador.Views
             ((System.ComponentModel.ISupportInitialize)(this.dgvInvoiceDetail)).EndInit();
             this.panel16.ResumeLayout(false);
             this.panel16.PerformLayout();
+            this.panel14.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -683,5 +727,8 @@ namespace appFacturador.Views
         private System.Windows.Forms.Panel panel16;
         private System.Windows.Forms.ComboBox cBoxTaxes;
         private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Panel panel14;
+        private System.Windows.Forms.Button btnDiscardInvoice;
+        private System.Windows.Forms.Button btnSaveInvoice;
     }
 }
