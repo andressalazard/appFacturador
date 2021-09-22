@@ -78,7 +78,7 @@ namespace appFacturador.UserControls
         public decimal ProductPrice
         {
             get { return _productPrice; }
-            set { _productPrice = value; lblProductPrice.Text = $"{value}$"; }
+            set { _productPrice = value; lblProductPrice.Text = $"{String.Format("{0:0.00}",value)}$"; }
         }
 
 

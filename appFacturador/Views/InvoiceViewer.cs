@@ -16,11 +16,18 @@ namespace appFacturador.Views
         DataTable invoiceDetailTable;
         ClientModel currentClient;
         List<ProductModel> shoppingList;
+        DateTime emissionDate;
+        decimal subTotal = 0;
+        decimal total = 0;
+        int taxValue = 0;
+
+        int[] TaxValues = { 12, 14, 10 };
 
         public InvoiceViewer()
         {
             InitializeComponent();
             currentClient = null;
+
         }
 
         public InvoiceViewer(ClientModel selectedClient, List<ProductModel> purchasedProductsList)
@@ -28,17 +35,20 @@ namespace appFacturador.Views
             InitializeComponent();
             currentClient = selectedClient;
             shoppingList = purchasedProductsList;
+            emissionDate = DateTime.Now;
         }
 
         private void InvoiceViewer_Load(object sender, EventArgs e)
         {
             setupDetailTable();
             populateInvoice();
+            populateTaxesComboBox();
+            displayInvoiceNumber();
         }
 
         private void setupDetailTable() {
             invoiceDetailTable = new DataTable();
-            string[] fields = { "Units", "Product Description", "ProductPrice", "Total" };
+            string[] fields = { "Units", "ProductDescription", "ProductPrice", "Total" };
             foreach (string field in fields){
                 invoiceDetailTable.Columns.Add(field);
             }
@@ -50,16 +60,30 @@ namespace appFacturador.Views
             if (currentClient != null) {
                 displayCurrentClient();
             }
+
+            if (shoppingList != null) {
+                displayPurchaseDetail();
+            }
+
+            if (subTotal != 0) {
+                displayInvoiceMount();
+            }
         }
 
         private void displayCurrentClient() {
-            DateTime dateTime = DateTime.Now;
             txtClientFirstName.Text = currentClient.FirstName;
             txtClientLastName.Text = currentClient.LastName;
             txtClientPhone.Text = currentClient.Phone;
             txtClientEmail.Text = currentClient.Email;
             txtClientAddress.Text = currentClient.Address;
-            txtEmissionDate.Text = $"{getMonth(dateTime.Month)} {dateTime.Day}th, {dateTime.Year}";
+            txtEmissionDate.Text = $"{getMonth(emissionDate.Month)} {emissionDate.Day}th, {emissionDate.Year}";
+        }
+
+        private void displayInvoiceMount() {
+            decimal total = subTotal + (subTotal * taxValue) / 100;
+
+            txtSubtotal.Text = String.Format("{0:0.00}",subTotal);
+            txtTotal.Text = String.Format("{0:0.00}",total);
         }
 
         private string getMonth(int monthIndex) {
@@ -67,6 +91,51 @@ namespace appFacturador.Views
             "June","July","Aug","Sept","Oct","Nov","Dec"};
 
             return Months[monthIndex-1];
+        }
+
+        private void displayPurchaseDetail() {
+          foreach (ProductModel product in shoppingList) {
+                DataRow row = invoiceDetailTable.NewRow();
+                row["Units"] = product.ProductUnits;
+                row["ProductDescription"] = $"{product.ProductName} ({product.ProductCategory})";
+                row["ProductPrice"] = String.Format("{0:0.00}",product.ProductPrice);
+                decimal totalCost = product.ProductPrice * product.ProductUnits;
+                row["Total"] = String.Format("{0:0.00}",totalCost);
+
+                invoiceDetailTable.Rows.Add(row);
+
+                updateSubtotalValue(totalCost);
+          }
+        }
+
+        private void displayInvoiceNumber() {
+            Random random = new Random();
+            int num = random.Next(1000);
+            lblInvoiceID.Text = num.ToString("D7");
+            lblRUCValue.Text = "1792433363001";
+        }
+
+        private void populateTaxesComboBox() {
+            string[] TaxNames = { "I.V.A", "I.C.E", "Normal Discount" };
+            foreach (string taxName in TaxNames) {
+                cBoxTaxes.Items.Add(taxName);
+            }
+
+            cBoxTaxes.Text = cBoxTaxes.Items[0].ToString();
+        }
+
+        private void updateSubtotalValue(decimal value) {
+            subTotal += value;
+        }
+
+        private void setTaxValue() {
+            taxValue = TaxValues[cBoxTaxes.SelectedIndex];
+        }
+
+        private void cBoxTaxes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            setTaxValue();
+            displayInvoiceMount();
         }
     }
 }

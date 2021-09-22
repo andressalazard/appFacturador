@@ -88,7 +88,7 @@ namespace appFacturador.Views
                 DataRow row = summaryPurchase.NewRow();
                     row["ProductName"] = item.ProductTitle;
                     row["Units"] = item.SelectedUnits;
-                    row["Total"] = item.ProductPrice * item.SelectedUnits;
+                    row["Total"] = String.Format("{0:0.00}",item.ProductPrice * item.SelectedUnits);
                     summaryPurchase.Rows.Add(row);
              }
             }        

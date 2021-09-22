@@ -69,15 +69,16 @@ namespace appFacturador.Views
             this.label11 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel15 = new System.Windows.Forms.Panel();
-            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.txtTotal = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
-            this.panel14 = new System.Windows.Forms.Panel();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.label18 = new System.Windows.Forms.Label();
             this.panel13 = new System.Windows.Forms.Panel();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.txtSubtotal = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.dgvInvoiceDetail = new System.Windows.Forms.DataGridView();
+            this.label20 = new System.Windows.Forms.Label();
+            this.panel16 = new System.Windows.Forms.Panel();
+            this.label21 = new System.Windows.Forms.Label();
+            this.cBoxTaxes = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.pnlInvoiceInfo.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -94,9 +95,9 @@ namespace appFacturador.Views
             this.panel7.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel15.SuspendLayout();
-            this.panel14.SuspendLayout();
             this.panel13.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInvoiceDetail)).BeginInit();
+            this.panel16.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -473,8 +474,8 @@ namespace appFacturador.Views
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.panel16);
             this.panel2.Controls.Add(this.panel15);
-            this.panel2.Controls.Add(this.panel14);
             this.panel2.Controls.Add(this.panel13);
             this.panel2.Controls.Add(this.dgvInvoiceDetail);
             this.panel2.Location = new System.Drawing.Point(0, 279);
@@ -484,20 +485,21 @@ namespace appFacturador.Views
             // 
             // panel15
             // 
-            this.panel15.Controls.Add(this.textBox9);
+            this.panel15.Controls.Add(this.label20);
+            this.panel15.Controls.Add(this.txtTotal);
             this.panel15.Controls.Add(this.label19);
             this.panel15.Location = new System.Drawing.Point(442, 277);
             this.panel15.Name = "panel15";
             this.panel15.Size = new System.Drawing.Size(428, 27);
             this.panel15.TabIndex = 6;
             // 
-            // textBox9
+            // txtTotal
             // 
-            this.textBox9.Enabled = false;
-            this.textBox9.Location = new System.Drawing.Point(115, 4);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(299, 20);
-            this.textBox9.TabIndex = 1;
+            this.txtTotal.Enabled = false;
+            this.txtTotal.Location = new System.Drawing.Point(115, 4);
+            this.txtTotal.Name = "txtTotal";
+            this.txtTotal.Size = new System.Drawing.Size(299, 20);
+            this.txtTotal.TabIndex = 1;
             // 
             // label19
             // 
@@ -509,49 +511,22 @@ namespace appFacturador.Views
             this.label19.TabIndex = 0;
             this.label19.Text = "Total";
             // 
-            // panel14
-            // 
-            this.panel14.Controls.Add(this.textBox8);
-            this.panel14.Controls.Add(this.label18);
-            this.panel14.Location = new System.Drawing.Point(442, 245);
-            this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(428, 27);
-            this.panel14.TabIndex = 6;
-            // 
-            // textBox8
-            // 
-            this.textBox8.Enabled = false;
-            this.textBox8.Location = new System.Drawing.Point(115, 4);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(299, 20);
-            this.textBox8.TabIndex = 1;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Perpetua Titling MT", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(3, 6);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(50, 15);
-            this.label18.TabIndex = 0;
-            this.label18.Text = "%I.V.A.";
-            // 
             // panel13
             // 
-            this.panel13.Controls.Add(this.textBox7);
+            this.panel13.Controls.Add(this.txtSubtotal);
             this.panel13.Controls.Add(this.label17);
             this.panel13.Location = new System.Drawing.Point(442, 215);
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(428, 27);
             this.panel13.TabIndex = 5;
             // 
-            // textBox7
+            // txtSubtotal
             // 
-            this.textBox7.Enabled = false;
-            this.textBox7.Location = new System.Drawing.Point(115, 4);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(299, 20);
-            this.textBox7.TabIndex = 1;
+            this.txtSubtotal.Enabled = false;
+            this.txtSubtotal.Location = new System.Drawing.Point(115, 4);
+            this.txtSubtotal.Name = "txtSubtotal";
+            this.txtSubtotal.Size = new System.Drawing.Size(299, 20);
+            this.txtSubtotal.TabIndex = 1;
             // 
             // label17
             // 
@@ -571,6 +546,42 @@ namespace appFacturador.Views
             this.dgvInvoiceDetail.Name = "dgvInvoiceDetail";
             this.dgvInvoiceDetail.Size = new System.Drawing.Size(837, 209);
             this.dgvInvoiceDetail.TabIndex = 0;
+            // 
+            // label20
+            // 
+            this.label20.Image = global::appFacturador.Properties.Resources.outline_attach_money_black_24dp;
+            this.label20.Location = new System.Drawing.Point(54, 5);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(19, 16);
+            this.label20.TabIndex = 2;
+            // 
+            // panel16
+            // 
+            this.panel16.Controls.Add(this.cBoxTaxes);
+            this.panel16.Controls.Add(this.label21);
+            this.panel16.Location = new System.Drawing.Point(442, 245);
+            this.panel16.Name = "panel16";
+            this.panel16.Size = new System.Drawing.Size(428, 27);
+            this.panel16.TabIndex = 6;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Perpetua Titling MT", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Location = new System.Drawing.Point(3, 6);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(104, 15);
+            this.label21.TabIndex = 0;
+            this.label21.Text = "%Tax Applied";
+            // 
+            // cBoxTaxes
+            // 
+            this.cBoxTaxes.FormattingEnabled = true;
+            this.cBoxTaxes.Location = new System.Drawing.Point(115, 4);
+            this.cBoxTaxes.Name = "cBoxTaxes";
+            this.cBoxTaxes.Size = new System.Drawing.Size(299, 21);
+            this.cBoxTaxes.TabIndex = 1;
+            this.cBoxTaxes.SelectedIndexChanged += new System.EventHandler(this.cBoxTaxes_SelectedIndexChanged);
             // 
             // InvoiceViewer
             // 
@@ -611,11 +622,11 @@ namespace appFacturador.Views
             this.panel2.ResumeLayout(false);
             this.panel15.ResumeLayout(false);
             this.panel15.PerformLayout();
-            this.panel14.ResumeLayout(false);
-            this.panel14.PerformLayout();
             this.panel13.ResumeLayout(false);
             this.panel13.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInvoiceDetail)).EndInit();
+            this.panel16.ResumeLayout(false);
+            this.panel16.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -663,13 +674,14 @@ namespace appFacturador.Views
         private System.Windows.Forms.TextBox txtClientFirstName;
         private System.Windows.Forms.DataGridView dgvInvoiceDetail;
         private System.Windows.Forms.Panel panel15;
-        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox txtTotal;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Panel panel14;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Panel panel13;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox txtSubtotal;
         private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Panel panel16;
+        private System.Windows.Forms.ComboBox cBoxTaxes;
+        private System.Windows.Forms.Label label21;
     }
 }
