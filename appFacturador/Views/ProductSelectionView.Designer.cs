@@ -32,25 +32,26 @@ namespace appFacturador.Views
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProductSelectionView));
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.lblClientName = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.lblClientName = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.gridSummary = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
             this.btnSavePurchase = new System.Windows.Forms.Button();
+            this.btnChangeClient = new System.Windows.Forms.Button();
             this.btnClearFields = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridSummary)).BeginInit();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridSummary)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -62,15 +63,48 @@ namespace appFacturador.Views
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(776, 106);
             this.panel2.TabIndex = 1;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.btnChangeClient);
             this.panel3.Controls.Add(this.btnClearFields);
             this.panel3.Controls.Add(this.panel4);
-            this.panel3.Location = new System.Drawing.Point(479, 0);
+            this.panel3.Location = new System.Drawing.Point(448, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(290, 97);
+            this.panel3.Size = new System.Drawing.Size(321, 97);
             this.panel3.TabIndex = 3;
+            // 
+            // panel4
+            // 
+            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel4.Controls.Add(this.label5);
+            this.panel4.Controls.Add(this.label4);
+            this.panel4.Controls.Add(this.panel5);
+            this.panel4.Location = new System.Drawing.Point(131, 2);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(187, 52);
+            this.panel4.TabIndex = 3;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Perpetua Titling MT", 11F, System.Drawing.FontStyle.Bold);
+            this.label4.Location = new System.Drawing.Point(5, 3);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(150, 18);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Current Client";
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.SystemColors.GrayText;
+            this.panel5.Controls.Add(this.lblClientName);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel5.Location = new System.Drawing.Point(0, 25);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(185, 25);
+            this.panel5.TabIndex = 3;
             // 
             // lblClientName
             // 
@@ -83,16 +117,6 @@ namespace appFacturador.Views
             this.lblClientName.Size = new System.Drawing.Size(193, 21);
             this.lblClientName.TabIndex = 1;
             this.lblClientName.Text = "<FirstName LastName>";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Perpetua Titling MT", 11F, System.Drawing.FontStyle.Bold);
-            this.label4.Location = new System.Drawing.Point(5, 3);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(150, 18);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Current Client";
             // 
             // label2
             // 
@@ -107,7 +131,7 @@ namespace appFacturador.Views
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Perpetua Titling MT", 24F);
-            this.label1.Location = new System.Drawing.Point(3, 16);
+            this.label1.Location = new System.Drawing.Point(3, 11);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(367, 38);
             this.label1.TabIndex = 0;
@@ -154,27 +178,6 @@ namespace appFacturador.Views
             this.label3.Text = "Purchase Summary";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // panel4
-            // 
-            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel4.Controls.Add(this.label5);
-            this.panel4.Controls.Add(this.label4);
-            this.panel4.Controls.Add(this.panel5);
-            this.panel4.Location = new System.Drawing.Point(97, 2);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(187, 52);
-            this.panel4.TabIndex = 3;
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.SystemColors.GrayText;
-            this.panel5.Controls.Add(this.lblClientName);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel5.Location = new System.Drawing.Point(0, 25);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(185, 25);
-            this.panel5.TabIndex = 3;
-            // 
             // btnSavePurchase
             // 
             this.btnSavePurchase.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -191,12 +194,27 @@ namespace appFacturador.Views
             this.btnSavePurchase.UseVisualStyleBackColor = true;
             this.btnSavePurchase.Click += new System.EventHandler(this.btnSavePurchase_Click);
             // 
+            // btnChangeClient
+            // 
+            this.btnChangeClient.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Bold);
+            this.btnChangeClient.Image = global::appFacturador.Properties.Resources.outline_person_black_24dp;
+            this.btnChangeClient.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnChangeClient.Location = new System.Drawing.Point(27, 60);
+            this.btnChangeClient.Name = "btnChangeClient";
+            this.btnChangeClient.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.btnChangeClient.Size = new System.Drawing.Size(152, 32);
+            this.btnChangeClient.TabIndex = 4;
+            this.btnChangeClient.Text = "Change Client";
+            this.btnChangeClient.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnChangeClient.UseVisualStyleBackColor = true;
+            this.btnChangeClient.Click += new System.EventHandler(this.btnChangeClient_Click);
+            // 
             // btnClearFields
             // 
             this.btnClearFields.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Bold);
             this.btnClearFields.Image = global::appFacturador.Properties.Resources.outline_remove_shopping_cart_black_24dp;
             this.btnClearFields.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnClearFields.Location = new System.Drawing.Point(151, 60);
+            this.btnClearFields.Location = new System.Drawing.Point(185, 60);
             this.btnClearFields.Name = "btnClearFields";
             this.btnClearFields.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.btnClearFields.Size = new System.Drawing.Size(136, 32);
@@ -208,7 +226,7 @@ namespace appFacturador.Views
             // 
             // label5
             // 
-            this.label5.Image = global::appFacturador.Properties.Resources.outline_person_black_24dp;
+            this.label5.Image = global::appFacturador.Properties.Resources.outline_account_circle_black_24dp;
             this.label5.Location = new System.Drawing.Point(154, -2);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(27, 27);
@@ -228,12 +246,12 @@ namespace appFacturador.Views
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridSummary)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridSummary)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -255,5 +273,6 @@ namespace appFacturador.Views
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Button btnChangeClient;
     }
 }

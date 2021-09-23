@@ -203,5 +203,14 @@
   <ItemGroup>
     <None Include="Resources\outline_attach_money_black_24dp.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\outline_person_add_black_24dp1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\outline_people_black_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\outline_account_circle_black_24dp.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -68,20 +68,20 @@ namespace appFacturador.Views
             this.txtClientFirstName = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.panel14 = new System.Windows.Forms.Panel();
+            this.btnSaveInvoice = new System.Windows.Forms.Button();
+            this.btnDiscardInvoice = new System.Windows.Forms.Button();
+            this.panel16 = new System.Windows.Forms.Panel();
+            this.cBoxTaxes = new System.Windows.Forms.ComboBox();
+            this.label21 = new System.Windows.Forms.Label();
             this.panel15 = new System.Windows.Forms.Panel();
+            this.label20 = new System.Windows.Forms.Label();
             this.txtTotal = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
             this.panel13 = new System.Windows.Forms.Panel();
             this.txtSubtotal = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.dgvInvoiceDetail = new System.Windows.Forms.DataGridView();
-            this.label20 = new System.Windows.Forms.Label();
-            this.panel16 = new System.Windows.Forms.Panel();
-            this.label21 = new System.Windows.Forms.Label();
-            this.cBoxTaxes = new System.Windows.Forms.ComboBox();
-            this.panel14 = new System.Windows.Forms.Panel();
-            this.btnDiscardInvoice = new System.Windows.Forms.Button();
-            this.btnSaveInvoice = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.pnlInvoiceInfo.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -97,11 +97,11 @@ namespace appFacturador.Views
             this.panel8.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel14.SuspendLayout();
+            this.panel16.SuspendLayout();
             this.panel15.SuspendLayout();
             this.panel13.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInvoiceDetail)).BeginInit();
-            this.panel16.SuspendLayout();
-            this.panel14.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -488,6 +488,73 @@ namespace appFacturador.Views
             this.panel2.Size = new System.Drawing.Size(878, 317);
             this.panel2.TabIndex = 2;
             // 
+            // panel14
+            // 
+            this.panel14.Controls.Add(this.btnSaveInvoice);
+            this.panel14.Controls.Add(this.btnDiscardInvoice);
+            this.panel14.Location = new System.Drawing.Point(19, 216);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(402, 89);
+            this.panel14.TabIndex = 7;
+            // 
+            // btnSaveInvoice
+            // 
+            this.btnSaveInvoice.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Bold);
+            this.btnSaveInvoice.Image = global::appFacturador.Properties.Resources.baseline_save_alt_black_24dp;
+            this.btnSaveInvoice.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSaveInvoice.Location = new System.Drawing.Point(7, 48);
+            this.btnSaveInvoice.Name = "btnSaveInvoice";
+            this.btnSaveInvoice.Padding = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.btnSaveInvoice.Size = new System.Drawing.Size(152, 33);
+            this.btnSaveInvoice.TabIndex = 0;
+            this.btnSaveInvoice.Text = "Save Invoice";
+            this.btnSaveInvoice.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSaveInvoice.UseVisualStyleBackColor = true;
+            this.btnSaveInvoice.Click += new System.EventHandler(this.btnSaveInvoice_Click);
+            // 
+            // btnDiscardInvoice
+            // 
+            this.btnDiscardInvoice.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Bold);
+            this.btnDiscardInvoice.Image = global::appFacturador.Properties.Resources.outline_delete_black_24dp;
+            this.btnDiscardInvoice.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnDiscardInvoice.Location = new System.Drawing.Point(7, 9);
+            this.btnDiscardInvoice.Name = "btnDiscardInvoice";
+            this.btnDiscardInvoice.Padding = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.btnDiscardInvoice.Size = new System.Drawing.Size(152, 33);
+            this.btnDiscardInvoice.TabIndex = 0;
+            this.btnDiscardInvoice.Text = "Discard Invoice";
+            this.btnDiscardInvoice.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDiscardInvoice.UseVisualStyleBackColor = true;
+            this.btnDiscardInvoice.Click += new System.EventHandler(this.btnDiscardInvoice_Click);
+            // 
+            // panel16
+            // 
+            this.panel16.Controls.Add(this.cBoxTaxes);
+            this.panel16.Controls.Add(this.label21);
+            this.panel16.Location = new System.Drawing.Point(442, 245);
+            this.panel16.Name = "panel16";
+            this.panel16.Size = new System.Drawing.Size(428, 27);
+            this.panel16.TabIndex = 6;
+            // 
+            // cBoxTaxes
+            // 
+            this.cBoxTaxes.FormattingEnabled = true;
+            this.cBoxTaxes.Location = new System.Drawing.Point(115, 4);
+            this.cBoxTaxes.Name = "cBoxTaxes";
+            this.cBoxTaxes.Size = new System.Drawing.Size(299, 21);
+            this.cBoxTaxes.TabIndex = 1;
+            this.cBoxTaxes.SelectedIndexChanged += new System.EventHandler(this.cBoxTaxes_SelectedIndexChanged);
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Perpetua Titling MT", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Location = new System.Drawing.Point(3, 6);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(104, 15);
+            this.label21.TabIndex = 0;
+            this.label21.Text = "%Tax Applied";
+            // 
             // panel15
             // 
             this.panel15.Controls.Add(this.label20);
@@ -497,6 +564,14 @@ namespace appFacturador.Views
             this.panel15.Name = "panel15";
             this.panel15.Size = new System.Drawing.Size(428, 27);
             this.panel15.TabIndex = 6;
+            // 
+            // label20
+            // 
+            this.label20.Image = global::appFacturador.Properties.Resources.outline_attach_money_black_24dp;
+            this.label20.Location = new System.Drawing.Point(54, 5);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(19, 16);
+            this.label20.TabIndex = 2;
             // 
             // txtTotal
             // 
@@ -552,80 +627,6 @@ namespace appFacturador.Views
             this.dgvInvoiceDetail.Size = new System.Drawing.Size(837, 209);
             this.dgvInvoiceDetail.TabIndex = 0;
             // 
-            // label20
-            // 
-            this.label20.Image = global::appFacturador.Properties.Resources.outline_attach_money_black_24dp;
-            this.label20.Location = new System.Drawing.Point(54, 5);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(19, 16);
-            this.label20.TabIndex = 2;
-            // 
-            // panel16
-            // 
-            this.panel16.Controls.Add(this.cBoxTaxes);
-            this.panel16.Controls.Add(this.label21);
-            this.panel16.Location = new System.Drawing.Point(442, 245);
-            this.panel16.Name = "panel16";
-            this.panel16.Size = new System.Drawing.Size(428, 27);
-            this.panel16.TabIndex = 6;
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Perpetua Titling MT", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(3, 6);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(104, 15);
-            this.label21.TabIndex = 0;
-            this.label21.Text = "%Tax Applied";
-            // 
-            // cBoxTaxes
-            // 
-            this.cBoxTaxes.FormattingEnabled = true;
-            this.cBoxTaxes.Location = new System.Drawing.Point(115, 4);
-            this.cBoxTaxes.Name = "cBoxTaxes";
-            this.cBoxTaxes.Size = new System.Drawing.Size(299, 21);
-            this.cBoxTaxes.TabIndex = 1;
-            this.cBoxTaxes.SelectedIndexChanged += new System.EventHandler(this.cBoxTaxes_SelectedIndexChanged);
-            // 
-            // panel14
-            // 
-            this.panel14.Controls.Add(this.btnSaveInvoice);
-            this.panel14.Controls.Add(this.btnDiscardInvoice);
-            this.panel14.Location = new System.Drawing.Point(19, 216);
-            this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(402, 89);
-            this.panel14.TabIndex = 7;
-            // 
-            // btnDiscardInvoice
-            // 
-            this.btnDiscardInvoice.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Bold);
-            this.btnDiscardInvoice.Image = global::appFacturador.Properties.Resources.outline_delete_black_24dp;
-            this.btnDiscardInvoice.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnDiscardInvoice.Location = new System.Drawing.Point(7, 9);
-            this.btnDiscardInvoice.Name = "btnDiscardInvoice";
-            this.btnDiscardInvoice.Padding = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.btnDiscardInvoice.Size = new System.Drawing.Size(152, 33);
-            this.btnDiscardInvoice.TabIndex = 0;
-            this.btnDiscardInvoice.Text = "Discard Invoice";
-            this.btnDiscardInvoice.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDiscardInvoice.UseVisualStyleBackColor = true;
-            // 
-            // btnSaveInvoice
-            // 
-            this.btnSaveInvoice.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Bold);
-            this.btnSaveInvoice.Image = global::appFacturador.Properties.Resources.baseline_save_alt_black_24dp;
-            this.btnSaveInvoice.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnSaveInvoice.Location = new System.Drawing.Point(7, 48);
-            this.btnSaveInvoice.Name = "btnSaveInvoice";
-            this.btnSaveInvoice.Padding = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.btnSaveInvoice.Size = new System.Drawing.Size(152, 33);
-            this.btnSaveInvoice.TabIndex = 0;
-            this.btnSaveInvoice.Text = "Save Invoice";
-            this.btnSaveInvoice.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSaveInvoice.UseVisualStyleBackColor = true;
-            this.btnSaveInvoice.Click += new System.EventHandler(this.btnSaveInvoice_Click);
-            // 
             // InvoiceViewer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -663,14 +664,14 @@ namespace appFacturador.Views
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
             this.panel2.ResumeLayout(false);
+            this.panel14.ResumeLayout(false);
+            this.panel16.ResumeLayout(false);
+            this.panel16.PerformLayout();
             this.panel15.ResumeLayout(false);
             this.panel15.PerformLayout();
             this.panel13.ResumeLayout(false);
             this.panel13.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInvoiceDetail)).EndInit();
-            this.panel16.ResumeLayout(false);
-            this.panel16.PerformLayout();
-            this.panel14.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

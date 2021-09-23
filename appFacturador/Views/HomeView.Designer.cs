@@ -31,12 +31,12 @@ namespace appFacturador.Forms
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.btnShowProductsView = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnCreateClient = new System.Windows.Forms.Button();
             this.btnSearchClient = new System.Windows.Forms.Button();
-            this.btnInvoiceViewer = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -59,10 +59,45 @@ namespace appFacturador.Forms
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.label3);
             this.panel2.Location = new System.Drawing.Point(18, 15);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(739, 96);
+            this.panel2.Size = new System.Drawing.Size(739, 131);
             this.panel2.TabIndex = 4;
+            // 
+            // panel3
+            // 
+            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panel3.Controls.Add(this.btnCreateClient);
+            this.panel3.Controls.Add(this.btnSearchClient);
+            this.panel3.Location = new System.Drawing.Point(18, 174);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(739, 236);
+            this.panel3.TabIndex = 3;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("HoloLens MDL2 Assets", 14F);
+            this.label2.Location = new System.Drawing.Point(82, 39);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(183, 19);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "El super de los mercados®";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Cooper Black", 30F);
+            this.label3.Location = new System.Drawing.Point(3, 3);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(258, 46);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "MiniMarket";
             // 
             // label1
             // 
@@ -70,71 +105,42 @@ namespace appFacturador.Forms
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Perpetua Titling MT", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(134, 29);
+            this.label1.Font = new System.Drawing.Font("Perpetua Titling MT", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(174, 79);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(449, 38);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Facturero Electrónico";
-            // 
-            // panel3
-            // 
-            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.panel3.Controls.Add(this.btnInvoiceViewer);
-            this.panel3.Controls.Add(this.btnShowProductsView);
-            this.panel3.Controls.Add(this.btnCreateClient);
-            this.panel3.Controls.Add(this.btnSearchClient);
-            this.panel3.Location = new System.Drawing.Point(18, 127);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(739, 283);
-            this.panel3.TabIndex = 3;
-            // 
-            // btnShowProductsView
-            // 
-            this.btnShowProductsView.Font = new System.Drawing.Font("FontAwesome", 21.75F);
-            this.btnShowProductsView.Location = new System.Drawing.Point(352, 38);
-            this.btnShowProductsView.Name = "btnShowProductsView";
-            this.btnShowProductsView.Size = new System.Drawing.Size(270, 92);
-            this.btnShowProductsView.TabIndex = 5;
-            this.btnShowProductsView.Text = "Consultar Productos";
-            this.btnShowProductsView.UseVisualStyleBackColor = true;
-            this.btnShowProductsView.Visible = false;
-            this.btnShowProductsView.Click += new System.EventHandler(this.btnShowProductsView_Click);
+            this.label1.Size = new System.Drawing.Size(415, 38);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Shopping Aplication";
             // 
             // btnCreateClient
             // 
-            this.btnCreateClient.Font = new System.Drawing.Font("FontAwesome", 21.75F);
-            this.btnCreateClient.Location = new System.Drawing.Point(75, 38);
+            this.btnCreateClient.Font = new System.Drawing.Font("Malgun Gothic", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCreateClient.Image = global::appFacturador.Properties.Resources.outline_person_add_black_24dp1;
+            this.btnCreateClient.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCreateClient.Location = new System.Drawing.Point(181, 22);
             this.btnCreateClient.Name = "btnCreateClient";
-            this.btnCreateClient.Size = new System.Drawing.Size(271, 92);
+            this.btnCreateClient.Padding = new System.Windows.Forms.Padding(20, 0, 20, 0);
+            this.btnCreateClient.Size = new System.Drawing.Size(387, 58);
             this.btnCreateClient.TabIndex = 4;
-            this.btnCreateClient.Text = "Crear Cliente";
+            this.btnCreateClient.Text = "Create New Client";
+            this.btnCreateClient.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCreateClient.UseVisualStyleBackColor = true;
             this.btnCreateClient.Click += new System.EventHandler(this.btnCreateClient_Click);
             // 
             // btnSearchClient
             // 
-            this.btnSearchClient.Font = new System.Drawing.Font("FontAwesome", 21.75F);
-            this.btnSearchClient.Location = new System.Drawing.Point(75, 136);
+            this.btnSearchClient.Font = new System.Drawing.Font("Malgun Gothic", 21.75F, System.Drawing.FontStyle.Bold);
+            this.btnSearchClient.Image = global::appFacturador.Properties.Resources.outline_people_black_24dp;
+            this.btnSearchClient.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSearchClient.Location = new System.Drawing.Point(181, 88);
             this.btnSearchClient.Name = "btnSearchClient";
-            this.btnSearchClient.Size = new System.Drawing.Size(271, 92);
+            this.btnSearchClient.Padding = new System.Windows.Forms.Padding(20, 0, 20, 0);
+            this.btnSearchClient.Size = new System.Drawing.Size(387, 58);
             this.btnSearchClient.TabIndex = 3;
-            this.btnSearchClient.Text = "Consultar Cliente";
+            this.btnSearchClient.Text = "Registered Clients";
+            this.btnSearchClient.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSearchClient.UseVisualStyleBackColor = true;
             this.btnSearchClient.Click += new System.EventHandler(this.btnSearchClient_Click);
-            // 
-            // btnInvoiceViewer
-            // 
-            this.btnInvoiceViewer.Font = new System.Drawing.Font("Dubai", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnInvoiceViewer.Location = new System.Drawing.Point(353, 136);
-            this.btnInvoiceViewer.Name = "btnInvoiceViewer";
-            this.btnInvoiceViewer.Size = new System.Drawing.Size(269, 92);
-            this.btnInvoiceViewer.TabIndex = 6;
-            this.btnInvoiceViewer.Text = "Invoice Viewer";
-            this.btnInvoiceViewer.UseVisualStyleBackColor = true;
-            this.btnInvoiceViewer.Click += new System.EventHandler(this.btnInvoiceViewer_Click);
             // 
             // HomeView
             // 
@@ -156,11 +162,11 @@ namespace appFacturador.Forms
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button btnCreateClient;
         private System.Windows.Forms.Button btnSearchClient;
-        private System.Windows.Forms.Button btnShowProductsView;
-        private System.Windows.Forms.Button btnInvoiceViewer;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label1;
     }
 }

@@ -140,5 +140,16 @@ namespace appFacturador.Views
             navigation.NavigateToInvoiceViewer(this,selectedClient, getSelectedProducts());
         }
         #endregion
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnChangeClient_Click(object sender, EventArgs e)
+        {
+            AppNavigation navigation = new AppNavigation();
+            navigation.NavigateToRegisteredClientsView(this);
+        }
     }
 }

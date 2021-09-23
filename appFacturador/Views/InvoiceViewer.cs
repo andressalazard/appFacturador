@@ -141,12 +141,32 @@ namespace appFacturador.Views
 
         private void btnSaveInvoice_Click(object sender, EventArgs e)
         {
-            returnToHome();
+            DialogResult choice = MessageBox.Show("Invoice Emmitted Successfully!", "MiniMarket APP",
+                MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            if(choice == DialogResult.OK)
+            {
+                returnToHome();
+            }
         }
 
         private void returnToHome() {
             AppNavigation navigation = new AppNavigation();
             navigation.NavigateToHomeView(this);
         }
+
+        private void btnDiscardInvoice_Click(object sender, EventArgs e)
+        {
+            DialogResult choice = MessageBox.Show("Are you sure you want to Discard the current Invoice?" +
+                 "\nThe data will be eliminated.", "MiniMarket APP", MessageBoxButtons.YesNo, 
+                 MessageBoxIcon.Warning);
+            if(choice == DialogResult.Yes)
+            {
+                returnToHome();
+            }
+        }
+
+
+
+        
     }
 }
