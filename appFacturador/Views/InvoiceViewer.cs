@@ -1,4 +1,5 @@
 ﻿using appFacturador.Config;
+using appFacturador.Controllers;
 using appFacturador.Models;
 using System;
 using System.Collections.Generic;
@@ -21,6 +22,7 @@ namespace appFacturador.Views
         decimal subTotal = 0;
         decimal total = 0;
         int taxValue = 0;
+        string serialNumber;
 
         int[] TaxValues = { 12, 14, 10 };
 
@@ -81,7 +83,7 @@ namespace appFacturador.Views
         }
 
         private void displayInvoiceMount() {
-            decimal total = subTotal + (subTotal * taxValue) / 100;
+            total = subTotal + (subTotal * taxValue) / 100;
 
             txtSubtotal.Text = String.Format("{0:0.00}",subTotal);
             txtTotal.Text = String.Format("{0:0.00}",total);
@@ -141,10 +143,13 @@ namespace appFacturador.Views
 
         private void btnSaveInvoice_Click(object sender, EventArgs e)
         {
+            generateInvoiceRecord();
+
             DialogResult choice = MessageBox.Show("Invoice Emmitted Successfully!", "MiniMarket APP",
                 MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             if(choice == DialogResult.OK)
             {
+                generateInvoiceDetailRecord();
                 returnToHome();
             }
         }
@@ -162,6 +167,28 @@ namespace appFacturador.Views
             if(choice == DialogResult.Yes)
             {
                 returnToHome();
+            }
+        }
+
+
+        private void generateInvoiceRecord() {
+            serialNumber = $"001-001-00{lblInvoiceID.Text}";
+            Invoice invoiceRecord = new Invoice(emissionDate,subTotal,taxValue,total,serialNumber);
+            invoiceRecord.SaveCurrentInvoice();
+        }
+
+       private void generateInvoiceDetailRecord() {
+            Invoice invoice = new Invoice();
+           
+            if (invoice.GetFetchedInvoiceRecord(serialNumber)!= null) {
+                int invoiceID = invoice.GetFetchedInvoiceRecord(serialNumber).InvoiceID;
+                foreach (ProductModel product in shoppingList)
+                {
+                    InvoiceDetail invoiceDetailRecord = new InvoiceDetail(currentClient.ClientId,
+                        product.ProductId, invoiceID, product.ProductUnits, product.ProductUnits * product.ProductPrice);
+
+                    invoiceDetailRecord.SaveInvoiceDetail();
+                }
             }
         }
 

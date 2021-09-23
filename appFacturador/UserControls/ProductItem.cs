@@ -32,7 +32,6 @@ namespace appFacturador.UserControls
         }
 
         public ProductItem(int prodID, string prodTitle, decimal prodPrice, string prodCategory) {
-            Console.WriteLine($"prodID: {prodID}, prodTitle: {prodTitle}, prodPrice: {prodPrice}, prodCategory: {prodCategory}");
 
 
             InitializeComponent();

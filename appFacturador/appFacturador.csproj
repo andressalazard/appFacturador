@@ -64,8 +64,12 @@
     <Compile Include="Config\AppNavigation.cs" />
     <Compile Include="Config\DBConnection.cs" />
     <Compile Include="Controllers\Client.cs" />
+    <Compile Include="Controllers\Invoice.cs" />
+    <Compile Include="Controllers\InvoiceDetail.cs" />
     <Compile Include="Controllers\Product.cs" />
     <Compile Include="Models\ClientModel.cs" />
+    <Compile Include="Models\InvoiceDetailModel.cs" />
+    <Compile Include="Models\InvoiceModel.cs" />
     <Compile Include="Models\ProductModel.cs" />
     <Compile Include="UserControls\ProductItem.cs">
       <SubType>UserControl</SubType>

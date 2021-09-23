@@ -307,6 +307,7 @@ namespace appFacturador.Views
             // 
             // gridRegisteredClients
             // 
+            this.gridRegisteredClients.AllowUserToAddRows = false;
             this.gridRegisteredClients.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gridRegisteredClients.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridRegisteredClients.Location = new System.Drawing.Point(21, 132);

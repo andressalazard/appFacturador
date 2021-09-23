@@ -620,6 +620,7 @@ namespace appFacturador.Views
             // 
             // dgvInvoiceDetail
             // 
+            this.dgvInvoiceDetail.AllowUserToAddRows = false;
             this.dgvInvoiceDetail.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvInvoiceDetail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvInvoiceDetail.Location = new System.Drawing.Point(19, 0);

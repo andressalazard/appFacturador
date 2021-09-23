@@ -8,6 +8,7 @@ using System.Data;
 using System.Data.SqlClient;
 using appFacturador.Models;
 using System.Windows.Forms;
+using appFacturador.Controllers;
 
 namespace appFacturador.Config
 {
@@ -79,6 +80,28 @@ namespace appFacturador.Config
             return registeredClients;
         }
 
+        public List<InvoiceModel> FetchInvoiceRecord(string serialNumber) {
+            string sql = $"SELECT * FROM INVOICE WHERE SerialNumber = '{serialNumber}'";
+            List<InvoiceModel> fetchedList = new List<InvoiceModel>();
+            SqlCommand command = new SqlCommand(sql, dbConnection);
+            SqlDataReader dataReader = command.ExecuteReader();
+            while (dataReader.Read()) {
+                Console.WriteLine(dataReader);
+                Invoice fetchedInvoice = new Invoice(
+                    (int)dataReader["InvoiceID"],
+                    (decimal)dataReader["Subtotal"],
+                    (int)dataReader["Tax"],
+                    (decimal)dataReader["Total"],
+                    dataReader["RUC"].ToString(),
+                    dataReader["SerialNumber"].ToString());
+                fetchedList.Add(fetchedInvoice.GetInvoice());
+            }
+
+            dataReader.Close();
+
+            return fetchedList;
+        }
+
 
         public void InsertClientRecord(ClientModel clientRecord) {
            
@@ -98,6 +121,42 @@ namespace appFacturador.Config
                 MessageBox.Show(i + "Client Successfully save on DB!");
             }
         }
+
+        public void InsertInvoiceRecord(InvoiceModel invoiceRecord) {
+            string storedProcedureName = "SP_Insert_Invoice";
+            SqlCommand command = new SqlCommand(storedProcedureName, dbConnection);
+            command.CommandType = CommandType.StoredProcedure;
+
+            command.Parameters.AddWithValue("@EmissionDate", invoiceRecord.EmissionDate);
+            command.Parameters.AddWithValue("@Subtotal", invoiceRecord.SubTotal);
+            command.Parameters.AddWithValue("@Tax", invoiceRecord.Tax);
+            command.Parameters.AddWithValue("@Total", invoiceRecord.Total);
+            command.Parameters.AddWithValue("@SerialNumber", invoiceRecord.SerialNumber);
+
+            int i = command.ExecuteNonQuery();
+            if (i != 0) {
+                MessageBox.Show(i + "Invoice Successfully save on DB!");
+            }
+        }
+
+        public void InsertInvoiceDetailRecord(InvoiceDetailModel invoiceDetailRecord) {
+            string storedProcedureName = "SP_InsertInvoiceDetail";
+            SqlCommand command = new SqlCommand(storedProcedureName, dbConnection);
+            command.CommandType = CommandType.StoredProcedure;
+
+            command.Parameters.AddWithValue("@ClientID", invoiceDetailRecord.ClientID);
+            command.Parameters.AddWithValue("@ProductID", invoiceDetailRecord.ProductID);
+            command.Parameters.AddWithValue("@InvoiceID", invoiceDetailRecord.InvoiceID);
+            command.Parameters.AddWithValue("@ProductUnits", invoiceDetailRecord.ProductUnits);
+            command.Parameters.AddWithValue("@ProductTotalCost", invoiceDetailRecord.ProductTotalCost);
+
+            int i = command.ExecuteNonQuery();
+            if (i != 0) {
+                MessageBox.Show($"{i} - Invoice Successfully save on DB!");
+            }
+        }
+
+
 
         #endregion
 
@@ -123,6 +182,26 @@ namespace appFacturador.Config
             ConnectToDatabase();
             InsertClientRecord(client);
             DisconnectToDatabase();
+        }
+
+        public void registerNewInvoice(InvoiceModel invoice) {
+            ConnectToDatabase();
+            InsertInvoiceRecord(invoice);
+            DisconnectToDatabase();
+        }
+
+        public void registerNewInvoiceDetailRecord(InvoiceDetailModel invoiceDetail) {
+            ConnectToDatabase();
+            InsertInvoiceDetailRecord(invoiceDetail);
+            DisconnectToDatabase();
+        }
+
+        public List<InvoiceModel> getInvoiceRecordBySerialNumber(string serialNumber) {
+            ConnectToDatabase();
+            List<InvoiceModel> fetchedList= FetchInvoiceRecord(serialNumber);
+            DisconnectToDatabase();
+
+            return fetchedList;
         }
 
         
